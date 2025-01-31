@@ -20,65 +20,127 @@
 <body>
   <header>
     <h1>
-        Q D1-  I'll help you solve this fuzzy logic control problem step by step.
+        Q D1-  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzy Logic Controller Solution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
 
-1. First, let's create the complete rule base considering all possible combinations of Temperature (Low, Medium, High) and Humidity (Low, Medium, High):
+<h1>Fuzzy Logic Controller Solution</h1>
 
-Rule Base:
-- If Temperature is Low AND Humidity is Low THEN Cooling Intensity is Slow
-- If Temperature is Low AND Humidity is Medium THEN Cooling Intensity is Slow
-- If Temperature is Low AND Humidity is High THEN Cooling Intensity is Medium
-- If Temperature is Medium AND Humidity is Low THEN Cooling Intensity is Medium
-- If Temperature is Medium AND Humidity is Medium THEN Cooling Intensity is Medium
-- If Temperature is Medium AND Humidity is High THEN Cooling Intensity is Fast
-- If Temperature is High AND Humidity is Low THEN Cooling Intensity is Fast
-- If Temperature is High AND Humidity is Medium THEN Cooling Intensity is Fast
-- If Temperature is High AND Humidity is High THEN Cooling Intensity is Fast
+<h2>Step 1: Create the Complete Rule Base</h2>
+<p>The rule base for the fuzzy logic controller is as follows:</p>
+<ul>
+    <li>If Temperature is Low AND Humidity is Low, then Cooling Intensity is Slow.</li>
+    <li>If Temperature is Low AND Humidity is Medium, then Cooling Intensity is Slow.</li>
+    <li>If Temperature is Low AND Humidity is High, then Cooling Intensity is Medium.</li>
+    <li>If Temperature is Medium AND Humidity is Low, then Cooling Intensity is Slow.</li>
+    <li>If Temperature is Medium AND Humidity is Medium, then Cooling Intensity is Medium.</li>
+    <li>If Temperature is Medium AND Humidity is High, then Cooling Intensity is High.</li>
+    <li>If Temperature is High AND Humidity is Low, then Cooling Intensity is Medium.</li>
+    <li>If Temperature is High AND Humidity is Medium, then Cooling Intensity is High.</li>
+    <li>If Temperature is High AND Humidity is High, then Cooling Intensity is High.</li>
+</ul>
 
-2. Let's calculate membership values for T = 28°C and H = 55%:
+<h2>Step 2: Determine the Membership Values for T and H</h2>
+<p>Given:</p>
+<ul>
+    <li>Temperature (T) = 28°C</li>
+    <li>Humidity (H) = 55%</li>
+</ul>
 
-For Temperature (T = 28°C):
-- Low: μL(28) = 1 - 28/25 = 0 (since T > 25)
-- Medium: μM(28) = (28 - 20)/15 = 0.533 (since 20 ≤ T ≤ 35)
-- High: μH(28) = 0 (since T < 45)
+<h3>Membership Values for Temperature (T):</h3>
+<table>
+    <tr>
+        <th>Fuzzy Set</th>
+        <th>Membership Value</th>
+    </tr>
+    <tr>
+        <td>Low (uL(T))</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>Medium (uM(T))</td>
+        <td>0.533</td>
+    </tr>
+    <tr>
+        <td>High (uH(T))</td>
+        <td>0</td>
+    </tr>
+</table>
 
-For Humidity (H = 55%):
-- Low: μL(55) = 0 (since H > 50)
-- Medium: μM(55) = (60 - 55)/20 = 0.25 (since 40 ≤ H ≤ 60)
-- High: μH(55) = 0 (since H < 70)
+<h3>Membership Values for Humidity (H):</h3>
+<table>
+    <tr>
+        <th>Fuzzy Set</th>
+        <th>Membership Value</th>
+    </tr>
+    <tr>
+        <td>Low (uL(H))</td>
+        <td>0</td>
+    </tr>
+    <tr>
+        <td>Medium (uM(H))</td>
+        <td>0.75</td>
+    </tr>
+    <tr>
+        <td>High (uH(H))</td>
+        <td>0</td>
+    </tr>
+</table>
 
-3. Based on the membership values, only one rule is applicable (since other combinations have at least one zero membership value):
+<h2>Step 3: Identify the Applicable Rules</h2>
+<p>Based on the membership values:</p>
+<ul>
+    <li>Temperature (T): Medium (0.533), Low (0), High (0)</li>
+    <li>Humidity (H): Medium (0.75), Low (0), High (0)</li>
+</ul>
+<p>The applicable rule is:</p>
+<ul>
+    <li>If Temperature is Medium AND Humidity is Medium, then Cooling Intensity is Medium.</li>
+</ul>
 
-Rule: If Temperature is Medium AND Humidity is Medium THEN Cooling Intensity is Medium
+<h2>Step 4: Compute the Crisp Value of Cooling Intensity (S) Using CoA Method</h2>
+<p>The Center of Area (CoA) method is used to defuzzify the output. Since only one rule is applicable, the output is directly determined by the rule:</p>
+<ul>
+    <li>Cooling Intensity is Medium.</li>
+</ul>
+<p>The crisp value of the Cooling Intensity (S) is:</p>
+<p><strong>45</strong></p>
 
-Using the minimum operator for AND:
-min(μM(T), μM(H)) = min(0.533, 0.25) = 0.25
+</body>
+</html>
 
-4. For the Centroid of Area (CoA) method:
-
-For Medium Cooling Intensity (truncated at 0.25):
-- The membership function for Medium speed is:
-μM(S) = ((S - 20)/25) for 20 ≤ S ≤ 45
-μM(S) = (70 - S)/25 for 45 ≤ S ≤ 70
-
-The formula for CoA is:
-S* = ∫(S × μ(S))dS / ∫μ(S)dS
-
-Let's solve this numerically (since the truncated function makes it complex):
-
-The area will be truncated at μ = 0.25, and we need to:
-1) Find the S values where the truncated line intersects the medium membership function
-2) Calculate the centroid of this truncated area
-
-For μ = 0.25:
-When (S - 20)/25 = 0.25: S = 26.25
-When (70 - S)/25 = 0.25: S = 63.75
-
-The crisp output value S* will be approximately 45 (the center of the truncated membership function).
-
-Therefore, the defuzzified cooling intensity value is approximately 45 units on the scale of 0-100.
-
-This indicates a medium cooling intensity, which makes sense given the moderate temperature and humidity values provided.​​​​​​​​​​​​​​​​<br>
+1. 
+-
 
     </h1>
 
