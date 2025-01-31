@@ -146,62 +146,125 @@
 
   </header>
   <main>
-    Q D2 - Solving the 8-Queens Problem using Genetic Algorithm
+    Q D2 - <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Queens Problem using Genetic Algorithm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
 
-Step 1: Given Population (Chromosomes)
+<h1>Solving the 8-Queens Problem using Genetic Algorithm</h1>
 
-Each chromosome represents a board configuration where the index represents the column, and the value represents the row position of the queen.
-	1.	[2, 5, 1, 7, 4, 6, 8, 3]
-	2.	[3, 6, 8, 4, 7, 2, 5, 1]
-	3.	[8, 3, 5, 1, 6, 4, 2, 7]
-	4.	[7, 4, 1, 8, 2, 3, 6, 5]
+<h2>Step 1: Given Population (Chromosomes)</h2>
+<p>Each chromosome represents a board configuration where the index represents the column, and the value represents the row position of the queen.</p>
+<ul>
+    <li>[2, 5, 1, 7, 4, 6, 8, 3]</li>
+    <li>[3, 6, 8, 4, 7, 2, 5, 1]</li>
+    <li>[8, 3, 5, 1, 6, 4, 2, 7]</li>
+    <li>[7, 4, 1, 8, 2, 3, 6, 5]</li>
+</ul>
 
-Step 2: Fitness Calculation
+<h2>Step 2: Fitness Calculation</h2>
+<p>The fitness function counts the number of non-attacking pairs of queens. The goal is to maximize this value.</p>
+<ul>
+    <li>Total pairs in a valid solution: 28</li>
+    <li>Conflicting pairs: Count the number of queens attacking each other (same row, diagonal).</li>
+    <li>Fitness = Total pairs - Conflicting pairs</li>
+</ul>
+<p>For simplicity, assume we computed fitness values:</p>
+<table>
+    <tr>
+        <th>Chromosome</th>
+        <th>Fitness</th>
+    </tr>
+    <tr>
+        <td>[2, 5, 1, 7, 4, 6, 8, 3]</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>[3, 6, 8, 4, 7, 2, 5, 1]</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <td>[8, 3, 5, 1, 6, 4, 2, 7]</td>
+        <td>22</td>
+    </tr>
+    <tr>
+        <td>[7, 4, 1, 8, 2, 3, 6, 5]</td>
+        <td>21</td>
+    </tr>
+</table>
+<p>Higher fitness means fewer attacks.</p>
 
-The fitness function counts the number of non-attacking pairs of queens. The goal is to maximize this value.
-	•	Total pairs in a valid solution: ￼
-	•	Conflicting pairs: Count the number of queens attacking each other (same row, diagonal).
-	•	Fitness = Total pairs - Conflicting pairs
+<h2>Step 3: Selection (Tournament Selection)</h2>
+<p>We randomly select two parents with high fitness for crossover. Assume we pick:</p>
+<ul>
+    <li>Parent 1: [3, 6, 8, 4, 7, 2, 5, 1]</li>
+    <li>Parent 2: [8, 3, 5, 1, 6, 4, 2, 7]</li>
+</ul>
 
-For simplicity, assume we computed fitness values:
-	1.	Fitness = 18
-	2.	Fitness = 20
-	3.	Fitness = 22
-	4.	Fitness = 21
+<h2>Step 4: One-Point Crossover (Position 4)</h2>
+<p>Crossover at the 4th position:</p>
+<ul>
+    <li>Parent 1: [3, 6, 8, 4 | 7, 2, 5, 1]</li>
+    <li>Parent 2: [8, 3, 5, 1 | 6, 4, 2, 7]</li>
+</ul>
+<p>After crossover, we swap the second halves:</p>
+<ul>
+    <li>Child 1: [3, 6, 8, 4, 6, 4, 2, 7]</li>
+    <li>Child 2: [8, 3, 5, 1, 7, 2, 5, 1]</li>
+</ul>
 
-Higher fitness means fewer attacks.
+<h2>Step 5: Mutation (20% Probability)</h2>
+<p>Mutation means randomly changing one value in a chromosome with a 20% probability.</p>
+<ul>
+    <li>Assume we mutate Child 1 at position 6: [3, 6, 8, 4, 6, 3, 2, 7]</li>
+    <li>Assume we mutate Child 2 at position 2: [8, 3, 4, 1, 7, 2, 5, 1]</li>
+</ul>
 
-Step 3: Selection (Tournament Selection)
+<h2>Step 6: New Population</h2>
+<p>The updated population after one epoch:</p>
+<ul>
+    <li>[3, 6, 8, 4, 6, 3, 2, 7] (Mutated Child 1)</li>
+    <li>[8, 3, 4, 1, 7, 2, 5, 1] (Mutated Child 2)</li>
+    <li>[8, 3, 5, 1, 6, 4, 2, 7] (Old Parent 2)</li>
+    <li>[7, 4, 1, 8, 2, 3, 6, 5] (Old Parent 1)</li>
+</ul>
+<p>This process repeats until we reach an optimal solution where no queens attack each other.</p>
 
-We randomly select two parents with high fitness for crossover. Assume we pick:
-	•	Parent 1: [3, 6, 8, 4, 7, 2, 5, 1]
-	•	Parent 2: [8, 3, 5, 1, 6, 4, 2, 7]
-
-Step 4: One-Point Crossover (Position 4)
-
-Crossover at the 4th position:
-	•	Parent 1: [3, 6, 8, 4 | 7, 2, 5, 1]
-	•	Parent 2: [8, 3, 5, 1 | 6, 4, 2, 7]
-
-After crossover, we swap the second halves:
-	•	Child 1: [3, 6, 8, 4, 6, 4, 2, 7]
-	•	Child 2: [8, 3, 5, 1, 7, 2, 5, 1]
-
-Step 5: Mutation (20% Probability)
-
-Mutation means randomly changing one value in a chromosome with a 20% probability.
-	•	Assume we mutate Child 1 at position 6: [3, 6, 8, 4, 6, 3, 2, 7]
-	•	Assume we mutate Child 2 at position 2: [8, 3, 4, 1, 7, 2, 5, 1]
-
-Step 6: New Population
-
-The updated population after one epoch:
-	1.	[3, 6, 8, 4, 6, 3, 2, 7] (Mutated Child 1)
-	2.	[8, 3, 4, 1, 7, 2, 5, 1] (Mutated Child 2)
-	3.	[8, 3, 5, 1, 6, 4, 2, 7] (Old Parent 2)
-	4.	[7, 4, 1, 8, 2, 3, 6, 5] (Old Parent 1)
-
-This process repeats until we reach an optimal solution where no queens attack each other.
+</body>
+</html>
   </main>
 </body>
 </html>
