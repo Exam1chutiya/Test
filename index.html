@@ -20,7 +20,65 @@
 <body>
   <header>
     <h1>
-        test case
+        Q D1-  I'll help you solve this fuzzy logic control problem step by step.
+
+1. First, let's create the complete rule base considering all possible combinations of Temperature (Low, Medium, High) and Humidity (Low, Medium, High):
+
+Rule Base:
+- If Temperature is Low AND Humidity is Low THEN Cooling Intensity is Slow
+- If Temperature is Low AND Humidity is Medium THEN Cooling Intensity is Slow
+- If Temperature is Low AND Humidity is High THEN Cooling Intensity is Medium
+- If Temperature is Medium AND Humidity is Low THEN Cooling Intensity is Medium
+- If Temperature is Medium AND Humidity is Medium THEN Cooling Intensity is Medium
+- If Temperature is Medium AND Humidity is High THEN Cooling Intensity is Fast
+- If Temperature is High AND Humidity is Low THEN Cooling Intensity is Fast
+- If Temperature is High AND Humidity is Medium THEN Cooling Intensity is Fast
+- If Temperature is High AND Humidity is High THEN Cooling Intensity is Fast
+
+2. Let's calculate membership values for T = 28°C and H = 55%:
+
+For Temperature (T = 28°C):
+- Low: μL(28) = 1 - 28/25 = 0 (since T > 25)
+- Medium: μM(28) = (28 - 20)/15 = 0.533 (since 20 ≤ T ≤ 35)
+- High: μH(28) = 0 (since T < 45)
+
+For Humidity (H = 55%):
+- Low: μL(55) = 0 (since H > 50)
+- Medium: μM(55) = (60 - 55)/20 = 0.25 (since 40 ≤ H ≤ 60)
+- High: μH(55) = 0 (since H < 70)
+
+3. Based on the membership values, only one rule is applicable (since other combinations have at least one zero membership value):
+
+Rule: If Temperature is Medium AND Humidity is Medium THEN Cooling Intensity is Medium
+
+Using the minimum operator for AND:
+min(μM(T), μM(H)) = min(0.533, 0.25) = 0.25
+
+4. For the Centroid of Area (CoA) method:
+
+For Medium Cooling Intensity (truncated at 0.25):
+- The membership function for Medium speed is:
+μM(S) = ((S - 20)/25) for 20 ≤ S ≤ 45
+μM(S) = (70 - S)/25 for 45 ≤ S ≤ 70
+
+The formula for CoA is:
+S* = ∫(S × μ(S))dS / ∫μ(S)dS
+
+Let's solve this numerically (since the truncated function makes it complex):
+
+The area will be truncated at μ = 0.25, and we need to:
+1) Find the S values where the truncated line intersects the medium membership function
+2) Calculate the centroid of this truncated area
+
+For μ = 0.25:
+When (S - 20)/25 = 0.25: S = 26.25
+When (70 - S)/25 = 0.25: S = 63.75
+
+The crisp output value S* will be approximately 45 (the center of the truncated membership function).
+
+Therefore, the defuzzified cooling intensity value is approximately 45 units on the scale of 0-100.
+
+This indicates a medium cooling intensity, which makes sense given the moderate temperature and humidity values provided.​​​​​​​​​​​​​​​​
 
     </h1>
 
