@@ -645,6 +645,259 @@ Q B2- <!DOCTYPE html>
       </ul>
     </li>
   </ul>
+  Q B3- <!DOCTYPE html>
+<html>
+<head>
+  <title>Genetic Algorithm Example</title>
+</head>
+<body>
+
+  <h1>Genetic Algorithm: Finding Optimal Value of f(x) = x^2 - 4x + 3</h1>
+
+  <p>
+    This example demonstrates one epoch of a genetic algorithm designed to find the optimal value of the given function. 
+    The algorithm uses a binary representation with 6 genes per chromosome.
+  </p>
+
+  <h2>Initial Population</h2>
+
+  <ul>
+    <li>Ch1: 000101</li>
+    <li>Ch2: 111001</li>
+    <li>Ch3: 100110</li>
+    <li>Ch4: 011011</li>
+  </ul>
+
+  <h2>1. Fitness Evaluation</h2>
+
+  <table border="1">
+    <tr>
+      <th>Chromosome</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Fitness (f(x))</th>
+    </tr>
+    <tr>
+      <td>Ch1</td>
+      <td>000101</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>Ch2</td>
+      <td>111001</td>
+      <td>49</td>
+      <td>2250</td>
+    </tr>
+    <tr>
+      <td>Ch3</td>
+      <td>100110</td>
+      <td>38</td>
+      <td>1317</td>
+    </tr>
+    <tr>
+      <td>Ch4</td>
+      <td>011011</td>
+      <td>27</td>
+      <td>600</td>
+    </tr>
+  </table>
+
+  <h2>2. Tournament Selection</h2>
+
+  <ul>
+    <li>Tournament 1: Ch2 (49) vs. Ch3 (38) -> Ch2 wins</li>
+    <li>Tournament 2: Ch1 (5) vs. Ch4 (27) -> Ch4 wins</li>
+  </ul>
+
+  <h2>3. Crossover (One-point Crossover at Position 4)</h2>
+
+  <p>
+    - Parent 1: 1110 | 01<br>
+    - Parent 2: 0110 | 11<br>
+    - Offspring 1: 1110 | 11 = 111011<br>
+    - Offspring 2: 0110 | 01 = 011001
+  </p>
+
+  <h2>4. Mutation (Bit Flip with Probability 0.1)</h2>
+
+  <p>
+    - Assuming mutation occurs in Offspring 1 at the 2nd position:<br>
+    - Offspring 1: 101011
+  </p>
+
+  <h2>5. Updated Population</h2>
+
+  <ul>
+    <li>Ch1: 101011 (Offspring 1 after mutation)</li>
+    <li>Ch2: 111001</li>
+    <li>Ch3: 011001 (Offspring 2)</li>
+    <li>Ch4: 011011</li>
+  </ul>
+
+  <p>
+    **Note:** This is one possible outcome of the first epoch. The actual results may vary due to the probabilistic nature of the algorithm.
+  </p>
+<title> KITNA LIKHOGI RAND. TOP KARNA HAI</title>
+  Q B4- <!DOCTYPE html>
+<html>
+<head>
+  <title>Crossover Techniques in Genetic Algorithms</title>
+</head>
+<body>
+
+  <h1>Crossover Techniques</h1>
+
+  <p>
+    This example demonstrates the application of different crossover techniques on two parent chromosomes: 
+    <br>
+    - P1: 11100011
+    <br>
+    - P2: 10101101
+  </p>
+
+  <h2>a) Single Point Crossover (2nd Position)</h2>
+
+  <ul>
+    <li>Parents:</li>
+      <ul>
+        <li>P1: 1110 | 0011</li>
+        <li>P2: 1010 | 1101</li>
+      </ul>
+    <li>Offspring:</li>
+      <ul>
+        <li>O1: 1110 | 1101</li>
+        <li>O2: 1010 | 0011</li>
+      </ul>
+  </ul>
+
+  <h2>b) Two-Point Crossover (2nd and 5th Position)</h2>
+
+  <ul>
+    <li>Parents:</li>
+      <ul>
+        <li>P1: 1110 | 00 | 11</li>
+        <li>P2: 1010 | 11 | 01</li>
+      </ul>
+    <li>Offspring:</li>
+      <ul>
+        <li>O1: 1110 | 11 | 11</li>
+        <li>O2: 1010 | 00 | 01</li>
+      </ul>
+  </ul>
+
+  <h2>c) Uniform Crossover with Mask 10011111</h2>
+
+  <ul>
+    <li>Parents:</li>
+      <ul>
+        <li>P1: 11100011</li>
+        <li>P2: 10101101</li>
+      </ul>
+    <li>Mask:</li>
+      <ul>
+        <li>10011111</li>
+      </ul>
+    <li>Offspring:</li>
+      <ul>
+        <li>O1: 10100011 (Take bits from P2 where mask is 1, otherwise from P1)</li>
+        <li>O2: 11101101 (Take bits from P1 where mask is 1, otherwise from P2)</li>
+      </ul>
+  </ul>
+
+  <p>
+    These crossover techniques are used in genetic algorithms to introduce genetic diversity and explore a wider range of solutions.
+  </p>
+ Q B5- <!DOCTYPE html>
+<html>
+<head>
+  <title>Particle Swarm Optimization (PSO)</title>
+</head>
+<body>
+
+  <h1>Particle Swarm Optimization</h1>
+
+  <p>
+    Particle Swarm Optimization (PSO) is a computational method that optimizes a problem by iteratively trying to improve a candidate solution with regard to a given measure of quality.
+  </p>
+
+  <h2>Core Concept</h2>
+
+  <ul>
+    <li><strong>Swarm of Particles:** PSO simulates a swarm of particles moving around in the search space. Each particle represents a potential solution to the optimization problem.</li>
+    <li><strong>Collective Intelligence:** Particles interact with each other and share information about their positions and fitness values (how good their current solution is).</li>
+    <li><strong>Movement:** Particles adjust their positions and velocities based on two key factors:
+      <ul>
+        <li><strong>Personal Best:** The best position found by the particle itself so far.</li>
+        <li><strong>Global Best:** The best position found by any particle in the swarm so far.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>Key Steps</h2>
+
+  <ol>
+    <li><strong>Initialization:**
+      <ul>
+        <li>Initialize a swarm of particles with random positions and velocities within the search space.</li>
+      </ul>
+    </li>
+    <li><strong>Evaluation:**
+      <ul>
+        <li>Evaluate the fitness of each particle based on the objective function.</li>
+      </ul>
+    </li>
+    <li><strong>Update Velocities and Positions:**
+      <ul>
+        <li>Calculate the velocity of each particle based on its current velocity, its personal best position, and the global best position.</li>
+        <li>Update the position of each particle based on its current position and velocity.</li>
+      </ul>
+    </li>
+    <li><strong>Iteration:**
+      <ul>
+        <li>Repeat steps 2 and 3 for a specified number of iterations or until a termination condition is met (e.g., reaching a certain fitness level).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h2>Key Parameters</h2>
+
+  <ul>
+    <li><strong>Inertia Weight:** Controls the influence of the particle's previous velocity on its current velocity.</li>
+    <li><strong>Cognitive Coefficient:** Controls the influence of the particle's personal best position.</li>
+    <li><strong>Social Coefficient:** Controls the influence of the global best position.</li>
+  </ul>
+
+  <h2>Advantages of PSO</h2>
+
+  <ul>
+    <li><strong>Simple to Implement:** Relatively easy to understand and code.</li>
+    <li><strong>Efficient:** Can often find good solutions quickly.</li>
+    <li><strong>Robust:** Can handle a wide range of optimization problems.</li>
+  </ul>
+
+  <h2>Applications</h2>
+
+  <ul>
+    <li><strong>Engineering Design:** Optimization of structures, control systems, etc.</li>
+    <li><strong>Machine Learning:** Training neural networks, feature selection.</li>
+    <li><strong>Finance:** Portfolio optimization, risk management.</li>
+    <li><strong>Robotics:** Path planning, motion control.</li>
+  </ul>
+
+  <p>
+    In essence, PSO mimics the social behavior of animals like birds or fish, where individuals learn from each other and collaborate to find the best solution to a problem. 
+    This collaborative approach allows PSO to effectively explore the solution space and converge towards optimal or near-optimal solutions.
+  </p>
+
+</body>
+</html>
+
+</body>
+</html>
+
+</body>
+</html>
 
 </body>
 </html>
