@@ -53,49 +53,6 @@
     </style>
 </head>
 <body>
-# Input: A 2D array of size m x n<br>
-def count_ones(matrix):<br>
-    rows = len(matrix)<br>
-    cols = len(matrix[0]) if rows > 0 else 0<br>
-<br>
-    # Initialize row and column counts<br>
-    row_counts = [0] * rows<br>
-    col_counts = [0] * cols<br>
-<br>
-    # Iterate through the matrix<br>
-    for i in range(rows):<br>
-        for j in range(cols):<br>
-            if matrix[i][j] == 1:<br>
-                row_counts[i] += 1<br>
-                col_counts[j] += 1<br>
-<br>
-    # Output row-wise and column-wise counts<br>
-    print("Row-wise counts:", row_counts)<br>
-    print("Column-wise counts:", col_counts)<br>
-<br>
-# Example usage<br>
-matrix = [<br>
-    [0, 1, 0],<br>
-    [1, 1, 1],<br>
-    [0, 0, 1]<br>
-]<br>
-count_ones(matrix)<br>
-<br><br><br>hash collision <br><br><br> 
-# Input keys and hash function<br>
-keys = [32, 50, 700, 140, 76, 85, 46, 92, 70, 73, 101]<br>
-hash_table_size = 7<br>
-<br>
-# Initialize hash table<br>
-hash_table = [[] for _ in range(hash_table_size)]<br>
-<br>
-# Insert keys into the hash table<br>
-for key in keys:<br>
-    index = key % hash_table_size<br>
-    hash_table[index].append(key)<br>
-<br>
-# Display hash table<br>
-for i, chain in enumerate(hash_table):<br>
-    print(f"Index {i}: {chain}")<br>
-
+ PASTE HERE 
   </body>
 </html>
