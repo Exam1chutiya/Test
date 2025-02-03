@@ -211,6 +211,124 @@ The equilibrium strategy is (H, E) with payoffs (6, 5).<br>
     - If Player 1 is type T2 → Choosing E gives R = 1, Choosing F gives R = 6 → Player 1 (T2) also prefers F.</p>
 
     <p><strong>Equilibrium Strategy: (F, E) with expected payoff (6, 3).</strong></p>
+  <h1>Game Theory Exam Solutions</h1>
+
+    <hr>
+
+    <h2>Section B: Concept-Based Questions</h2>
+
+    <h3>Q6: Minimax Regret Approach</h3>
+    <p>A tech company is deciding between three Machine Learning models (A, B, and C) based on dataset quality (Small, Medium, Large). The given payoffs are in percentage points.</p>
+
+    <h3>Step 1: Regret Table Calculation</h3>
+    <p>Regret is calculated as:  
+    <strong>Regret = Max Payoff in Column - Actual Payoff</strong></p>
+
+    <table border="1">
+        <tr>
+            <th>Model</th>
+            <th>Small Dataset</th>
+            <th>Medium Dataset</th>
+            <th>Large Dataset</th>
+        </tr>
+        <tr>
+            <td>Model A</td>
+            <td>85</td>
+            <td>75</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Model B</td>
+            <td>70</td>
+            <td>80</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>Model C</td>
+            <td>65</td>
+            <td>85</td>
+            <td>95</td>
+        </tr>
+    </table>
+
+    <p><strong>Step 2: Compute Maximum Regret for Each Model</strong></p>
+    <p>- Model A: Max regret = 10  
+    - Model B: Max regret = 15  
+    - Model C: Max regret = 5</p>
+
+    <p><strong>Final Decision:</strong> Using Minimax Regret, we choose Model C as it has the least maximum regret (5).</p>
+
+    <hr>
+
+    <h3>Q7: Expected Opportunity Loss (EOL) Approach</h3>
+    <p>Given dataset probabilities: Small (0.3), Medium (0.5), Large (0.2).</p>
+
+    <h3>Step 1: Expected Loss Calculation</h3>
+    <p>- EOL(Model A) = (0.3 * 10) + (0.5 * 5) + (0.2 * 0) = 4.5  
+    - EOL(Model B) = (0.3 * 15) + (0.5 * 10) + (0.2 * 5) = 9.5  
+    - EOL(Model C) = (0.3 * 5) + (0.5 * 0) + (0.2 * 0) = 1.5</p>
+
+    <p><strong>Final Decision:</strong> Model C has the lowest EOL (1.5), so the company should choose Model C.</p>
+
+    <hr>
+
+    <h3>Q8: Multi-Agent Reinforcement Learning (MARL) Key Elements</h3>
+    <p>- <strong>Agents:</strong> Multiple decision-makers interacting in an environment.<br>
+    - <strong>States:</strong> The current conditions in which agents operate.<br>
+    - <strong>Actions:</strong> Moves taken by agents in response to states.<br>
+    - <strong>Rewards:</strong> Feedback signals for actions.<br>
+    - <strong>Policies:</strong> Strategies guiding actions.</p>
+
+    <p><strong>Contribution to Optimal Strategies:</strong> MARL enables learning through interactions, helping agents to converge toward Nash equilibrium in multi-agent settings.</p>
+
+    <hr>
+
+    <h3>Q9: Minimax-Maximin Theorem</h3>
+    <p>- Minimax strategy: Minimizing the maximum possible loss.<br>
+    - Maximin strategy: Maximizing the minimum guaranteed payoff.<br>
+    - For a zero-sum game, Minimax = Maximin, ensuring equilibrium.</p>
+
+    <hr>
+
+    <h2>Section A: Memory-Based Questions</h2>
+
+    <h3>Q1: Backward Induction in Extensive Form Games</h3>
+    <p>Backward induction involves solving the game from the last decision nodes backward to the first, ensuring rational choices at each stage.</p>
+
+    <hr>
+
+    <h3>Q2: Difference Between Pure and Mixed Strategies</h3>
+    <p>- <strong>Pure Strategy:</strong> A player always chooses the same action.<br>
+    - <strong>Mixed Strategy:</strong> A player randomizes over actions.</p>
+
+    <p><strong>Example:</strong> In Rock-Paper-Scissors, choosing Rock always is a pure strategy, while choosing randomly among Rock, Paper, and Scissors is a mixed strategy.</p>
+
+    <hr>
+
+    <h3>Q3: Importance of Nash Equilibrium in Game Theory</h3>
+    <p>Nash Equilibrium ensures that no player can benefit by unilaterally deviating from their strategy, making it a stable solution concept.</p>
+
+    <hr>
+
+    <h3>Q4: Components of an Extensive Form Game</h3>
+    <p>- <strong>Players:</strong> Decision-makers in the game.<br>
+    - <strong>Strategies:</strong> Action plans for players.<br>
+    - <strong>Payoffs:</strong> Rewards for different strategy combinations.<br>
+    - <strong>Information Sets:</strong> Knowledge about prior moves.<br>
+    - <strong>Decision Nodes:</strong> Points where choices are made.</p>
+
+    <hr>
+
+    <h3>Q5: How Reinforcement Learning Integrates with Game Theory</h3>
+    <p>- RL helps agents learn optimal strategies over time.<br>
+    - In multi-agent systems, RL converges to equilibrium strategies.<br>
+    - Examples: Q-learning in strategic decision-making.</p>
+
+    <hr>
+
+    <footer>
+        <p>Prepared for Game Theory Exam - AI & Machine Learning</p>
+    </footer>
  PASTE HERE 
   </body>
 </html>
