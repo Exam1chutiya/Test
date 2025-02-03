@@ -91,7 +91,126 @@ Knowing the employee will choose E, the manager compares payoffs:<br>
 H → E: 6 vs. L → E: 4. Best response: H.<br>
 Nash Equilibrium (Subgame Perfect Equilibrium):<br>
 The equilibrium strategy is (H, E) with payoffs (6, 5).<br>
+<h2> Q14 (Payoff Matrix & Equilibrium Strategy using Best-Response Method)</h2>
+    
+    <h3>Step 1: Constructing the Payoff Matrix (Normal Form)</h3>
+    <p>The given game is sequential, but we can convert it into <strong>normal form (payoff matrix)</strong> by listing each player's strategies.</p>
 
+    <h3>Players and Their Strategies:</h3>
+    <p><strong>Player 1 (P1) has two choices initially:</strong><br>
+    - <strong>A</strong> (ends game, payoff <strong>(4,3)</strong>)<br>
+    - <strong>B</strong> (continues game, Player 2 moves)</p>
+
+    <p><strong>Player 2 (P2) has two choices if P1 plays B:</strong><br>
+    - <strong>X</strong> (ends game, payoff <strong>(2,5)</strong>)<br>
+    - <strong>Y</strong> (continues game, Player 1 moves again)</p>
+
+    <p><strong>If Player 2 chooses Y, Player 1 has two more choices:</strong><br>
+    - <strong>C</strong> (payoff <strong>(3,2)</strong>)<br>
+    - <strong>D</strong> (payoff <strong>(1,4)</strong>)</p>
+
+    <h3>Payoff Matrix:</h3>
+    <table border="1">
+        <tr>
+            <th>Player 1 Strategy</th>
+            <th>Player 2 chooses X</th>
+            <th>Player 2 chooses Y → P1 chooses C</th>
+            <th>Player 2 chooses Y → P1 chooses D</th>
+        </tr>
+        <tr>
+            <td><strong>A</strong></td>
+            <td>(4,3)</td>
+            <td>(4,3)</td>
+            <td>(4,3)</td>
+        </tr>
+        <tr>
+            <td><strong>B → X</strong></td>
+            <td>(2,5)</td>
+            <td>(2,5)</td>
+            <td>(2,5)</td>
+        </tr>
+        <tr>
+            <td><strong>B → Y → C</strong></td>
+            <td>(3,2)</td>
+            <td>(3,2)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><strong>B → Y → D</strong></td>
+            <td>(1,4)</td>
+            <td>-</td>
+            <td>(1,4)</td>
+        </tr>
+    </table>
+
+    <h3>Step 2: Finding the Best-Response & Equilibrium Strategy</h3>
+    <p>- Player 1 prefers A (4,3) over B → X (2,5), but if Player 2 chooses Y, then Player 1 prefers C (3,2) over D (1,4).<br>
+    - Player 2 prefers X (5 for them) if Player 1 plays B but would prefer Y if they believe Player 1 will choose C (2 for them vs. 4 in case of D).</p>
+
+    <h3>Equilibrium Strategy:</h3>
+    <p>- Player 1 chooses A (4,3), as it guarantees a better outcome than the uncertain continuation.<br>
+    - If forced into B, Player 1 should choose C (3,2) over D (1,4).<br>
+    - Player 2 should choose X if Player 1 plays B.</p>
+
+    <p><strong>Thus, the equilibrium strategy is (A, -) with payoff (4,3).</strong></p>
+
+    <hr>
+
+    <h2>Q13 (Extensive Form Game & Subgame Perfect Nash Equilibrium using Backward Induction)</h2>
+
+    <h3>Step 1: Drawing the Extensive Form Game (Game Tree)</h3>
+    <p>- Player 1 starts and chooses between A and B.<br>
+    - If A, game ends → Payoff (4,3).<br>
+    - If B, Player 2 chooses X or Y.<br>
+    - If X, game ends → Payoff (2,5).<br>
+    - If Y, Player 1 chooses C or D.<br>
+    - If C, payoff (3,2).<br>
+    - If D, payoff (1,4).</p>
+
+    <h3>Step 2: Solving via Backward Induction</h3>
+    <p>1. At Player 1’s final decision point (after Y):<br>
+    - C (3,2) > D (1,4) → So Player 1 will choose C.<br>
+    2. At Player 2’s decision point (after B):<br>
+    - Compare X (2,5) vs. Y (3,2).<br>
+    - Player 2 prefers X (5 vs. 2).<br>
+    3. At Player 1’s first decision point:<br>
+    - A (4,3) vs. B → X (2,5).<br>
+    - Player 1 prefers A (4,3).</p>
+
+    <p><strong>Thus, the subgame perfect Nash equilibrium (SPNE) is (A, -) with payoff (4,3).</strong></p>
+
+    <hr>
+
+    <h2> Q12 (Observability in Reinforcement Learning & Partial Observability Impact)</h2>
+
+    <h3>1. Role of Observability in RL:</h3>
+    <p>- Full observability: The agent receives complete information about the environment state, enabling <strong>accurate learning</strong>.<br>
+    - Partial observability: The agent gets <strong>incomplete information</strong>, requiring probabilistic models to estimate missing data.</p>
+
+    <h3>2. Impact of Partial Observability:</h3>
+    <p>- Slower learning: The agent must infer hidden state information.<br>
+    - Suboptimal decisions: Incorrect state estimations lead to <strong>suboptimal strategies</strong>.<br>
+    - Increased exploration: Agents must explore more to learn hidden aspects of the environment.</p>
+
+    <h3>3. Methods to Handle Hidden States:</h3>
+    <p>- <strong>POMDPs</strong> (Partially Observable Markov Decision Processes): Use probability distributions over hidden states.<br>
+    - <strong>Recurrent Neural Networks (RNNs)</strong>: Store historical information to infer missing states.<br>
+    - <strong>Belief State Estimation</strong>: Maintain a probability distribution over possible states.</p>
+
+    <hr>
+
+    <h2>Q11 (Perfect Bayesian Equilibrium for Signaling Game)</h2>
+
+    <h3>Step 1: Understanding the Game</h3>
+    <p>- Nature assigns Player 1’s type (T1 or T2) with probabilities (T1 = 0.7, T2 = 0.3).<br>
+    - Player 1 observes their type and sends a message (E or F).<br>
+    - Player 2 sees the message and chooses A or B.</p>
+
+    <h3>Step 2: Find Beliefs & Expected Payoff</h3>
+    <p>- If Player 1 is type T1 → Choosing E gives R = 3, Choosing F gives R = 6 → Player 1 (T1) prefers F.<br>
+    - If Player 1 is type T2 → Choosing E gives R = 1, Choosing F gives R = 6 → Player 1 (T2) also prefers F.</p>
+
+    <p><strong>Equilibrium Strategy: (F, E) with expected payoff (6, 3).</strong></p>
  PASTE HERE 
   </body>
 </html>
