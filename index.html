@@ -1,337 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Website</title>
   <style>
-   
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
 
     @media (max-width: 600px) {
       nav ul {
         flex-direction: column;
+        text-align: center;
+        width: 100%;
       }
 
-      .content div {
-        width: 90%;
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>
-         <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KITNA LIKHEGI RAND.</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
-</head>
-<body>
-  
-  
+
+ 🔁 Stack (Last In, First Out — LIFO)
+Think of a stack of plates — you add to the top, and remove from the top.
+
+The last element added is the first one removed.
+
+✅ Operations:
+push(item) → Add item to top
+
+pop() → Remove item from top
+
+peek() → View top item without removing
+
+🔷 Example:
+If you push 1, 2, 3 → Stack = [1, 2, 3]
+Then pop() → returns 3
+
+🔁 Queue (First In, First Out — FIFO)
+Think of a line at a ticket counter — the first one in line gets served first.
+
+The first element added is the first one removed.
+
+✅ Operations:
+enqueue(item) → Add item to rear
+
+dequeue() → Remove item from front
+
+peek() → View front item without removing
+
+🔷 Example:
+If you enqueue 1, 2, 3 → Queue = [1, 2, 3]
+Then dequeue() → returns 1
+
+🔁 Comparison Table
+Feature	Stack	Queue
+Order	LIFO	FIFO
+Insert	Top (push)	Rear (enqueue)
+Remove	Top (pop)	Front (dequeue)
+Access	Only top item	Only front item
+Real-world Use	Undo operations	Printer jobs, call center
 
 
-    <h2>Q1: List all the Substrings of Length 4 for String "Manipal"</h2>
-    <p>The string <code>"Manipal"</code> has 7 characters. The substrings of length 4 are:</p>
-    <ul>
-        <li>Mani</li>
-        <li>anip</li>
-        <li>nipa</li>
-        <li>ipal</li>
-    </ul>
 
-    <h2>Q2: List the Two Finite Machines with Output</h2>
-    <ul>
-        <li><strong>Moore Machine:</strong> Output depends only on the current state. Output is associated with states.</li>
-        <li><strong>Mealy Machine:</strong> Output depends on the current state and the input. Output is associated with transitions.</li>
-    </ul>
-
-    <h2>Q3: Define the Smallest Language by Stating its Cardinality</h2>
-    <p>
-        The smallest language is the <strong>empty set (∅)</strong> which contains no strings.
-        <br>
-        <strong>Cardinality:</strong> 0
-    </p>
-    <p>
-        The largest language over an alphabet Σ is <code>Σ*</code> (all possible strings), which is <strong>countably infinite</strong>.
-    </p>
-
-    <h2>Q4: Define Pumping Lemma for CFG</h2>
-    <p>
-        The <strong>Pumping Lemma for Context-Free Grammars</strong> is used to prove that certain languages are not context-free.
-    </p>
-    <p><strong>Statement:</strong></p>
-    <p>
-        For any context-free language <code>L</code>, there exists a number <code>p</code> (pumping length) such that for any string <code>s ∈ L</code>, with <code>|s| ≥ p</code>, we can write:
-        <br>
-        <code>s = uvwxy</code> such that:
-    </p>
-    <ul>
-        <li><code>|vwx| ≤ p</code></li>
-        <li><code>vx ≠ ε</code></li>
-        <li>For all <code>i ≥ 0</code>, the string <code>uv<sup>i</sup>wx<sup>i</sup>y ∈ L</code></li>
-    </ul>
-    <p><strong>Use:</strong> To disprove that a language is context-free by contradiction.</p>
-
-    <h2>Q5: List all Types of Grammar Used in Automata</h2>
-    <p>The grammars are classified based on the <strong>Chomsky Hierarchy</strong>:</p>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Grammar Name</th>
-                <th>Language Class</th>
-                <th>Machine Equivalent</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Type 0</td>
-                <td>Unrestricted Grammar</td>
-                <td>Recursively Enumerable</td>
-                <td>Turing Machine</td>
-            </tr>
-            <tr>
-                <td>Type 1</td>
-                <td>Context-Sensitive Grammar</td>
-                <td>Context-Sensitive Language</td>
-                <td>Linear Bounded Automaton</td>
-            </tr>
-            <tr>
-                <td>Type 2</td>
-                <td>Context-Free Grammar</td>
-                <td>Context-Free Language</td>
-                <td>Pushdown Automaton</td>
-            </tr>
-            <tr>
-                <td>Type 3</td>
-                <td>Regular Grammar</td>
-                <td>Regular Language</td>
-                <td>Finite Automaton</td>
-	    </tr>
-	</tbody>
-    </table>
-	
-    <h1>SECTION C</h1>
-    <h2>Q1 (A): DFA over Σ = {a, b} accepting strings with even number of a's and b's</h2>
-    <p><strong>States:</strong></p>
-    <ul>
-        <li><code>q00</code>: Even a, Even b (Start and Accepting)</li>
-        <li><code>q01</code>: Even a, Odd b</li>
-        <li><code>q10</code>: Odd a, Even b</li>
-        <li><code>q11</code>: Odd a, Odd b</li>
-    </ul>
-    <p><strong>Transition logic:</strong></p>
-    <ul>
-        <li>On 'a': toggle a-parity (even ↔ odd)</li>
-        <li>On 'b': toggle b-parity</li>
-    </ul>
-    <p><strong>Accepting state:</strong> <code>q00</code> (Even number of a's and b's)</p>
-
-    <h2>Q1 (B): DFA over Σ = {a, b} for strings that start and end with different symbols</h2>
-    <p><strong>States:</strong></p>
-    <ul>
-        <li><code>q0</code>: Start state</li>
-        <li><code>qa</code>: Started with 'a'</li>
-        <li><code>qb</code>: Started with 'b'</li>
-        <li><code>qaa</code>: Started with 'a', ended with 'a' (reject)</li>
-        <li><code>qab</code>: Started with 'a', ended with 'b' (accept)</li>
-        <li><code>qba</code>: Started with 'b', ended with 'a' (accept)</li>
-        <li><code>qbb</code>: Started with 'b', ended with 'b' (reject)</li>
-    </ul>
-    <p><strong>Accepting states:</strong> <code>qab</code>, <code>qba</code></p>
-    <p>Note: For simplicity, this DFA tracks the first and last symbols to ensure they differ.</p>
-
-    <h2>Q2: Categorizing Decidable, Undecidable, Recursive, and Recursively Enumerable Languages</h2>
-
-    <p><strong>Definitions:</strong></p>
-    <ul>
-        <li><strong>Decidable (Recursive):</strong> A language is decidable if a Turing Machine <em>always halts</em> with Yes/No for any input.</li>
-        <li><strong>Undecidable:</strong> No TM can decide it for all inputs; it may loop forever.</li>
-        <li><strong>Recursively Enumerable (RE):</strong> A TM can accept strings in the language but might loop on non-members.</li>
-        <li><strong>Recursive:</strong> Same as decidable; every recursive language is also RE, but not vice versa.</li>
-    </ul>
-
-    <h3>Decision Analysis:</h3>
-    <ol>
-        <li>
-            <strong>A) The CFG accepts the input string w</strong><br>
-            ✅ <strong>Decidable</strong> — we can simulate the PDA to check if it accepts w.
-        </li>
-        <li>
-            <strong>B) The CSG accepts the input string w</strong><br>
-            ✅ <strong>Decidable</strong> — Linear Bounded Automata can decide acceptance.
-        </li>
-        <li>
-            <strong>C) The given Language L is RE and contains string "1101"</strong><br>
-            ✅ <strong>Semi-decidable</strong> — We can run the TM to check if "1101" is accepted (halt on accept), so it is RE, but not necessarily decidable.
-        </li>
-        <li>
-            <strong>D) The given Turing Machine accepts a regular language</strong><br>
-            ❌ <strong>Undecidable</strong> — Determining whether a TM accepts a regular language is undecidable.
-        </li>
-    </ol>
-
-    <h3>Summary Table:</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Problem</th>
-                <th>Decidable?</th>
-                <th>Explanation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CFG accepts string w</td>
-                <td>Yes</td>
-                <td>Simulate derivation or PDA</td>
-            </tr>
-            <tr>
-                <td>CSG accepts string w</td>
-                <td>Yes</td>
-                <td>Linear Bounded Automata are decidable</td>
-            </tr>
-            <tr>
-                <td>Language L is RE and contains 1101</td>
-                <td>Yes (Semi-decidable)</td>
-                <td>Accept if 1101 ∈ L, may not halt if not</td>
-            </tr>
-            <tr>
-                <td>TM accepts regular language</td>
-                <td>No</td>
-                <td>Undecidable to verify regularity of TM's language</td>
-	    </tr>
-	</tbody>
-    </table> 
-         
-    <h1>SECTION D</h1>
-    <h2>Q1: Pushdown Automaton (PDA) for L = { aⁿ bⁱ cⁱ dⁿ | n ≥ 0, i > 0 }</h2>
-
-    <p><strong>Language Constraints:</strong></p>
-    <ul>
-        <li>Number of <code>a</code>'s = number of <code>d</code>'s</li>
-        <li>Number of <code>b</code>'s = number of <code>c</code>'s</li>
-        <li>Order: all a's → b's → c's → d's</li>
-    </ul>
-
-    <p><strong>Stack Usage:</strong></p>
-    <ul>
-        <li>Push <code>A</code> for every <code>a</code></li>
-        <li>Push <code>B</code> for every <code>b</code></li>
-        <li>Pop <code>B</code> for each <code>c</code></li>
-        <li>Pop <code>A</code> for each <code>d</code></li>
-    </ul>
-
-    <p><strong>Accepting state:</strong> Reached if input is finished and stack has initial symbol <code>Z₀</code></p>
-
-    <h3>Test Input: <code>abbbeccd</code></h3>
-    <table>
-        <tr><th>Step</th><th>ID</th><th>Action</th></tr>
-        <tr><td>1</td><td>(q0, abbbeccd, Z₀)</td><td>Read <code>a</code>, push A → AZ₀</td></tr>
-        <tr><td>2</td><td>(q0, bbbeccd, AZ₀)</td><td>Read <code>b</code>, push B → ABZ₀</td></tr>
-        <tr><td>3</td><td>(q1, bbeccd, ABZ₀)</td><td>Read <code>b</code>, push B → ABBZ₀</td></tr>
-        <tr><td>4</td><td>(q1, beccd, ABBZ₀)</td><td>Read <code>b</code>, push B → ABBBZ₀</td></tr>
-        <tr><td>5</td><td>(q1, eccd, ABBBZ₀)</td><td class="reject">Read <code>e</code>: Invalid symbol</td></tr>
-    </table>
-    <p class="reject">Result: Rejected ❌</p>
-
-    <h3>Test Input: <code>abbecddd</code></h3>
-    <table>
-        <tr><th>Step</th><th>ID</th><th>Action</th></tr>
-        <tr><td>1</td><td>(q0, abbecddd, Z₀)</td><td>Read <code>a</code>, push A → AZ₀</td></tr>
-        <tr><td>2</td><td>(q0, bbecddd, AZ₀)</td><td>Read <code>b</code>, push B → ABZ₀</td></tr>
-        <tr><td>3</td><td>(q1, becddd, ABZ₀)</td><td>Read <code>b</code>, push B → ABBZ₀</td></tr>
-        <tr><td>4</td><td>(q1, ecddd, ABBZ₀)</td><td class="reject">Read <code>e</code>: Invalid symbol</td></tr>
-    </table>
-    <p class="reject">Result: Rejected ❌</p>
-
-    <h2>Q2: Turing Machine to Accept Strings with "ABA" as Substring (Σ = {A, B})</h2>
-
-    <p><strong>Language:</strong> Strings over {A, B} that contain <code>ABA</code> as a substring.</p>
-
-    <h3>States:</h3>
-    <ul>
-        <li><code>q0</code>: Start state</li>
-        <li><code>q1</code>: Read A</li>
-        <li><code>q2</code>: Read AB</li>
-        <li><code>q3</code>: Read ABA → Accept</li>
-        <li><code>q_reject</code>: Reject state</li>
-    </ul>
-
-    <h3>Transition Table:</h3>
-    <table>
-        <tr>
-            <th>Current State</th>
-            <th>Read Symbol</th>
-            <th>Write Symbol</th>
-            <th>Move</th>
-            <th>Next State</th>
-        </tr>
-        <tr>
-            <td>q0</td><td>A</td><td>A</td><td>R</td><td>q1</td>
-        </tr>
-        <tr>
-            <td>q0</td><td>B</td><td>B</td><td>R</td><td>q0</td>
-        </tr>
-        <tr>
-            <td>q1</td><td>A</td><td>A</td><td>R</td><td>q1</td>
-        </tr>
-        <tr>
-            <td>q1</td><td>B</td><td>B</td><td>R</td><td>q2</td>
-        </tr>
-        <tr>
-            <td>q2</td><td>A</td><td>A</td><td>R</td><td>q3</td>
-        </tr>
-        <tr>
-            <td>q2</td><td>B</td><td>B</td><td>R</td><td>q0</td>
-        </tr>
-        <tr>
-            <td>q3</td><td></td><td></td><td>S</td><td>Accept</td>
-        </tr>
-    </table>
-
-    <h3>State Diagram Description:</h3>
-    <ul>
-        <li><code>q0</code> → on <code>A</code> → <code>q1</code></li>
-        <li><code>q1</code> → on <code>B</code> → <code>q2</code></li>
-        <li><code>q2</code> → on <code>A</code> → <code>q3</code> (Accept)</li>
-        <li>If <code>ABA</code> not found, loop back or reject</li>
-    </ul>
-
-    <h3>Example Run:</h3>
-    <p><strong>Input:</strong> <code>BABABA</code></p>
-    <ol>
-        <li>q0: Read B → stay q0</li>
-        <li>q0: Read A → q1</li>
-        <li>q1: Read B → q2</li>
-        <li>q2: Read A → q3 → Accept ✅</li>
-    </ol>
-  </body>
+</body>
 </html>
