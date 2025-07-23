@@ -138,6 +138,97 @@
 	</tbody>
     </table>
 	
-  
+    <h1>SECTION C</h1>
+    <h2>Q1 (A): DFA over Σ = {a, b} accepting strings with even number of a's and b's</h2>
+    <p><strong>States:</strong></p>
+    <ul>
+        <li><code>q00</code>: Even a, Even b (Start and Accepting)</li>
+        <li><code>q01</code>: Even a, Odd b</li>
+        <li><code>q10</code>: Odd a, Even b</li>
+        <li><code>q11</code>: Odd a, Odd b</li>
+    </ul>
+    <p><strong>Transition logic:</strong></p>
+    <ul>
+        <li>On 'a': toggle a-parity (even ↔ odd)</li>
+        <li>On 'b': toggle b-parity</li>
+    </ul>
+    <p><strong>Accepting state:</strong> <code>q00</code> (Even number of a's and b's)</p>
+
+    <h2>Q1 (B): DFA over Σ = {a, b} for strings that start and end with different symbols</h2>
+    <p><strong>States:</strong></p>
+    <ul>
+        <li><code>q0</code>: Start state</li>
+        <li><code>qa</code>: Started with 'a'</li>
+        <li><code>qb</code>: Started with 'b'</li>
+        <li><code>qaa</code>: Started with 'a', ended with 'a' (reject)</li>
+        <li><code>qab</code>: Started with 'a', ended with 'b' (accept)</li>
+        <li><code>qba</code>: Started with 'b', ended with 'a' (accept)</li>
+        <li><code>qbb</code>: Started with 'b', ended with 'b' (reject)</li>
+    </ul>
+    <p><strong>Accepting states:</strong> <code>qab</code>, <code>qba</code></p>
+    <p>Note: For simplicity, this DFA tracks the first and last symbols to ensure they differ.</p>
+
+    <h2>Q2: Categorizing Decidable, Undecidable, Recursive, and Recursively Enumerable Languages</h2>
+
+    <p><strong>Definitions:</strong></p>
+    <ul>
+        <li><strong>Decidable (Recursive):</strong> A language is decidable if a Turing Machine <em>always halts</em> with Yes/No for any input.</li>
+        <li><strong>Undecidable:</strong> No TM can decide it for all inputs; it may loop forever.</li>
+        <li><strong>Recursively Enumerable (RE):</strong> A TM can accept strings in the language but might loop on non-members.</li>
+        <li><strong>Recursive:</strong> Same as decidable; every recursive language is also RE, but not vice versa.</li>
+    </ul>
+
+    <h3>Decision Analysis:</h3>
+    <ol>
+        <li>
+            <strong>A) The CFG accepts the input string w</strong><br>
+            ✅ <strong>Decidable</strong> — we can simulate the PDA to check if it accepts w.
+        </li>
+        <li>
+            <strong>B) The CSG accepts the input string w</strong><br>
+            ✅ <strong>Decidable</strong> — Linear Bounded Automata can decide acceptance.
+        </li>
+        <li>
+            <strong>C) The given Language L is RE and contains string "1101"</strong><br>
+            ✅ <strong>Semi-decidable</strong> — We can run the TM to check if "1101" is accepted (halt on accept), so it is RE, but not necessarily decidable.
+        </li>
+        <li>
+            <strong>D) The given Turing Machine accepts a regular language</strong><br>
+            ❌ <strong>Undecidable</strong> — Determining whether a TM accepts a regular language is undecidable.
+        </li>
+    </ol>
+
+    <h3>Summary Table:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Decidable?</th>
+                <th>Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CFG accepts string w</td>
+                <td>Yes</td>
+                <td>Simulate derivation or PDA</td>
+            </tr>
+            <tr>
+                <td>CSG accepts string w</td>
+                <td>Yes</td>
+                <td>Linear Bounded Automata are decidable</td>
+            </tr>
+            <tr>
+                <td>Language L is RE and contains 1101</td>
+                <td>Yes (Semi-decidable)</td>
+                <td>Accept if 1101 ∈ L, may not halt if not</td>
+            </tr>
+            <tr>
+                <td>TM accepts regular language</td>
+                <td>No</td>
+                <td>Undecidable to verify regularity of TM's language</td>
+	    </tr>
+	</tbody>
+    </table> 
   </body>
 </html>
