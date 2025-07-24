@@ -93,7 +93,131 @@
 </head>
 <body>
 
- Paste here
+ <h1>SECTION D</h1>
+
+  <h1>Graph Traversal: BFS and DFS</h1>
+
+  <div class="section">
+    <h2>(A) Definitions and Differences</h2>
+
+    <h3>Breadth-First Search (BFS)</h3>
+    <p>
+      BFS is a graph traversal algorithm that explores all neighbors of a node before going to the next level of neighbors.
+      It is commonly implemented using a <strong>queue</strong>.
+    </p>
+
+    <h3>Depth-First Search (DFS)</h3>
+    <p>
+      DFS is a traversal algorithm that explores as far along each branch as possible before backtracking.
+      It is commonly implemented using <strong>recursion</strong> or an explicit <strong>stack</strong>.
+    </p>
+
+    <h3>Key Differences</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Criteria</th>
+          <th>BFS</th>
+          <th>DFS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>(i) Approach</td>
+          <td>Level-wise traversal</td>
+          <td>Depth-wise traversal</td>
+        </tr>
+        <tr>
+          <td>(ii) Data Structure Used</td>
+          <td>Queue</td>
+          <td>Stack / Recursion</td>
+        </tr>
+        <tr>
+          <td>(iii) Time Complexity</td>
+          <td>O(V + E)</td>
+          <td>O(V + E)</td>
+        </tr>
+        <tr>
+          <td>(iv) Applications</td>
+          <td>
+            - Finding shortest path in unweighted graphs<br>
+            - Level-order traversal in trees
+          </td>
+          <td>
+            - Topological sorting<br>
+            - Solving puzzles and mazes
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>(B) Graph Traversal Example</h2>
+
+    <h3>(i) Graph Representation</h3>
+    <div class="graph">
+      <p><strong>Vertices:</strong> A, B, C, D, E, F</p>
+      <p><strong>Edges:</strong></p>
+      <ul>
+        <li>A - B</li>
+        <li>A - C</li>
+        <li>B - D</li>
+        <li>C - E</li>
+        <li>D - F</li>
+        <li>E - F</li>
+      </ul>
+    </div>
+
+    <p><strong>Graph Diagram (Text-based):</strong></p>
+    <pre>
+         A
+        / \
+       B   C
+       |    \
+       D     E
+        \   /
+          F
+    </pre>
+
+    <h3>(ii) BFS Traversal (Starting from A)</h3>
+    <pre>
+Step 1: Start at A → Enqueue A → Visited: [A] → Queue: [A]
+Step 2: Dequeue A → Visit B, C → Visited: [A, B, C] → Queue: [B, C]
+Step 3: Dequeue B → Visit D → Visited: [A, B, C, D] → Queue: [C, D]
+Step 4: Dequeue C → Visit E → Visited: [A, B, C, D, E] → Queue: [D, E]
+Step 5: Dequeue D → Visit F → Visited: [A, B, C, D, E, F] → Queue: [E, F]
+Step 6: Dequeue E → No unvisited neighbors → Queue: [F]
+Step 7: Dequeue F → Done
+
+<strong>BFS Order: A → B → C → D → E → F</strong>
+    </pre>
+
+    <h3>(iii) DFS Traversal (Starting from A)</h3>
+    <pre>
+Step 1: Start at A → Visit A
+Step 2: Go to B → Visit B
+Step 3: Go to D → Visit D
+Step 4: Go to F → Visit F
+Step 5: Backtrack → D → B → A
+Step 6: Go to C → Visit C
+Step 7: Go to E → Visit E → Done
+
+<strong>DFS Order: A → B → D → F → C → E</strong>
+    </pre>
+
+    <h3>(iv) Comparison of Traversal Orders</h3>
+    <p><strong>BFS:</strong> A → B → C → D → E → F</p>
+    <p><strong>DFS:</strong> A → B → D → F → C → E</p>
+
+    <h3>When to Prefer BFS or DFS?</h3>
+    <ul>
+      <li><strong>BFS:</strong> Preferred when shortest path or minimal number of steps is needed (e.g., pathfinding in unweighted graphs).</li>
+      <li><strong>DFS:</strong> Preferred in scenarios requiring complete exploration (e.g., solving puzzles, detecting cycles, topological sorting).</li>
+    </ul>
+  </div>
+
+
 
   
 </body>
