@@ -216,8 +216,174 @@ Step 7: Go to E → Visit E → Done
       <li><strong>DFS:</strong> Preferred in scenarios requiring complete exploration (e.g., solving puzzles, detecting cycles, topological sorting).</li>
     </ul>
   </div>
+ <h1>SECTION C</h1>
 
 
+
+  <h1>Q1: Graph Representation and Traversal</h1>
+
+  <div class="section">
+    <h2>(a) Graph Representation</h2>
+    <p><strong>Vertices:</strong> A, B, C, D</p>
+    <p><strong>Edges:</strong> (A,B), (A,C), (B,D), (C,D)</p>
+
+    <h3>Adjacency Matrix:</h3>
+    <pre>
+    A B C D
+A [0 1 1 0]
+B [0 0 0 1]
+C [0 0 0 1]
+D [0 0 0 0]
+    </pre>
+
+    <h3>Adjacency List:</h3>
+    <pre>
+A → B → C  
+B → D  
+C → D  
+D → NULL  
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>(b) Traversals from Vertex A</h2>
+
+    <h3>BFS (Breadth-First Search):</h3>
+    <pre>
+Visited: A  
+Queue: [A]  
+→ Visit A → Enqueue B, C  
+→ Visit B → Enqueue D  
+→ Visit C → D already in queue  
+→ Visit D → Done  
+
+<strong>BFS Order:</strong> A → B → C → D
+    </pre>
+
+    <h3>DFS (Depth-First Search):</h3>
+    <pre>
+Start at A  
+→ Visit B  
+  → Visit D  
+Backtrack to A  
+→ Visit C → D already visited  
+
+<strong>DFS Order:</strong> A → B → D → C
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>(c) Suitable Traversal for Shortest Path</h2>
+    <p>
+      <strong>BFS</strong> is more suitable for shortest path discovery in unweighted graphs, because it explores all nodes at a given level before going deeper.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>(d) Real-World Applications of Graphs</h2>
+    <ul>
+      <li><strong>Social Networks:</strong> Users are nodes, relationships are edges. Graphs help find friend recommendations, groups, influencers, etc.</li>
+      <li><strong>Google Maps:</strong> Cities are nodes, roads are edges. Graph algorithms find shortest paths, traffic-aware routes, etc.</li>
+    </ul>
+  </div>
+
+  <h1>Q2: Student Records Using Array of Structures</h1>
+
+  <div class="section">
+    <h2>C Program with Sorting</h2>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+typedef struct {
+    int roll;
+    char name[50];
+    float marks;
+} Student;
+
+void input(Student *s, int n) {
+    for (int i = 0; i &lt; n; i++) {
+        printf("Enter roll, name, marks for student %d:\n", i + 1);
+        scanf("%d", &amp;s[i].roll);
+        getchar(); // clear buffer
+        fgets(s[i].name, 50, stdin);
+        s[i].name[strcspn(s[i].name, "\n")] = 0; // remove newline
+        scanf("%f", &amp;s[i].marks);
+    }
+}
+
+void insertionSort(Student *s, int n) {
+    for (int i = 1; i &lt; n; i++) {
+        Student key = s[i];
+        int j = i - 1;
+        while (j &gt;= 0 &amp;&amp; s[j].marks &lt; key.marks) {
+            s[j + 1] = s[j];
+            j--;
+        }
+        s[j + 1] = key;
+    }
+}
+
+void display(Student *s, int n) {
+    printf("\nSorted Student List (Descending Marks):\n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("Roll: %d | Name: %s | Marks: %.2f\n", s[i].roll, s[i].name, s[i].marks);
+    }
+}
+
+int main() {
+    int n;
+    printf("Enter number of students: ");
+    scanf("%d", &amp;n);
+
+    Student *students = (Student *)malloc(n * sizeof(Student));
+    if (!students) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    input(students, n);
+    insertionSort(students, n);
+    display(students, n);
+
+    free(students);
+    return 0;
+}</code></pre>
+
+    <h2>Sample Output:</h2>
+    <pre>
+Enter number of students: 3  
+Enter roll, name, marks for student 1:  
+1  
+Alice  
+85  
+Enter roll, name, marks for student 2:  
+2  
+Bob  
+90  
+Enter roll, name, marks for student 3:  
+3  
+Charlie  
+75  
+
+Sorted Student List (Descending Marks):  
+Roll: 2 | Name: Bob | Marks: 90.00  
+Roll: 1 | Name: Alice | Marks: 85.00  
+Roll: 3 | Name: Charlie | Marks: 75.00
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>Explanation of Techniques Used</h2>
+
+    <ul>
+      <li><strong>Structures:</strong> Used to group student fields like roll, name, and marks.</li>
+      <li><strong>Dynamic Memory Allocation:</strong> <code>malloc()</code> allocates memory for <code>n</code> students at runtime.</li>
+      <li><strong>Pointers:</strong> Array of structures accessed using pointers to students.</li>
+      <li><strong>Structure Passing:</strong> Structures are passed to functions like <code>input()</code>, <code>display()</code>, and <code>insertionSort()</code> by reference (using pointers).</li>
+    </ul>
+  </div>
 
   
 </body>
