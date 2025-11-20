@@ -4,15 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exam Answers – Big Data & Hadoop</title>
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #f5f5f5; }
-    h1, h2, h3 { margin-bottom: 10px; color: #333; }
-    section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    ul { margin-left: 20px; margin-bottom: 10px; }
-    table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-    table, th, td { border: 1px solid #666; }
-    th, td { padding: 10px; text-align: left; }
+
+    body { 
+      font-family: Arial, sans-serif; 
+      line-height: 1.6; 
+      padding: 20px; 
+      background: #f5f5f5; 
+    }
+
+    h1, h2, h3 { 
+      margin-bottom: 10px; 
+      color: #333; 
+    }
+
+    section { 
+      background: white; 
+      padding: 20px; 
+      margin-bottom: 20px; 
+      border-radius: 8px; 
+      box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+    }
+
+    ul { 
+      margin-left: 20px; 
+      margin-bottom: 10px; 
+    }
+
+    ol { 
+      margin-left: 20px; 
+      margin-bottom: 10px; 
+    }
+
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 10px 0; 
+    }
+
+    table, th, td { 
+      border: 1px solid #666; 
+    }
+
+    th, td { 
+      padding: 10px; 
+      text-align: left; 
+    }
+
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 
@@ -103,6 +150,7 @@
   </ol>
 
   <h3>B4. Role of MapReduce Components</h3>
+
   <h4>Mapper</h4>
   <p>Produces key–value pairs from input data.</p>
 
@@ -121,18 +169,91 @@
 <section>
   <h2>SECTION C</h2>
 
-  <h3>C1. MapReduce Stages for Finding Average Temperature (Rajasthan Districts)</h3>
-  <h4>Mapper</h4>
-  <p>Reads input <district, temperature> and outputs (district, temperature).</p>
+  <h3>C1. Detailed MapReduce Stages for Finding Average Temperature in Districts of Rajasthan</h3>
 
-  <h4>Shuffle & Sort</h4>
-  <p>Groups all temperatures belonging to the same district.</p>
+  <p>This MapReduce job calculates the average temperature for each district in Rajasthan by processing large sets of temperature records. Below are the complete stages involved:</p>
 
-  <h4>Reducer</h4>
-  <p>Calculates average by sum(values) / count(values) for each district.</p>
+  <h4>1. Input Format</h4>
+  <p>The input dataset typically contains weather entries with fields:</p>
 
-  <h4>Final Output</h4>
-  <p>District-wise average temperature values.</p>
+  <ul>
+    <li>District Name</li>
+    <li>Date</li>
+    <li>Temperature (in °C)</li>
+  </ul>
+
+  <p><strong>Example input:</strong></p>
+  <pre>
+Jaipur  2023-06-01  32
+Jaipur  2023-06-02  34
+Udaipur 2023-06-01  28
+Udaipur 2023-06-02  30
+  </pre>
+
+  <h4>2. Mapper Phase</h4>
+  <p>
+    The mapper reads each line, extracts the district and temperature, and outputs a key-value pair.
+  </p>
+  <p><strong>Mapper Output Format:</strong> (district, temperature)</p>
+  <pre>
+Jaipur   32
+Jaipur   34
+Udaipur  28
+Udaipur  30
+  </pre>
+
+  <h4>3. Shuffle and Sort Phase</h4>
+  <p>
+    This phase performs:
+  </p>
+  <ul>
+    <li><strong>Grouping:</strong> Groups all records of each district.</li>
+    <li><strong>Sorting:</strong> Ensures keys are sorted for reducers.</li>
+  </ul>
+
+  <p><strong>Shuffle Output Example:</strong></p>
+  <pre>
+Jaipur   [32, 34]
+Udaipur  [28, 30]
+  </pre>
+
+  <h4>4. Reducer Phase</h4>
+  <p>
+    The reducer calculates:
+  </p>
+  <ul>
+    <li>Sum of all temperatures</li>
+    <li>Count of temperature readings</li>
+    <li>Average = sum / count</li>
+  </ul>
+
+  <p><strong>Reducer Output Example:</strong></p>
+  <pre>
+Jaipur   33.0°C
+Udaipur  29.0°C
+  </pre>
+
+  <h4>5. Final Output</h4>
+  <p>Final district-wise average temperature values:</p>
+  <pre>
+Jaipur   33.0°C
+Udaipur  29.0°C
+Jodhpur  31.2°C
+Kota     30.5°C
+Bikaner  34.1°C
+  </pre>
+
+  <h4>6. Summary of MapReduce Flow</h4>
+  <ol>
+    <li><strong>Mapper:</strong> Emits (district, temperature)</li>
+    <li><strong>Shuffle:</strong> Groups temperatures by district</li>
+    <li><strong>Reducer:</strong> Computes average</li>
+    <li><strong>Output:</strong> District → Average temperature</li>
+  </ol>
+
+  <p>
+    This method is efficient for large datasets, making it ideal for climate analysis and Big Data processing.
+  </p>
 
 </section>
 
