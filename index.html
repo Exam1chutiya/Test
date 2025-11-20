@@ -1,261 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exam Answers – Big Data & Hadoop</title>
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body { 
-      font-family: Arial, sans-serif; 
-      line-height: 1.6; 
-      padding: 20px; 
-      background: #f5f5f5; 
-    }
-
-    h1, h2, h3 { 
-      margin-bottom: 10px; 
-      color: #333; 
-    }
-
-    section { 
-      background: white; 
-      padding: 20px; 
-      margin-bottom: 20px; 
-      border-radius: 8px; 
-      box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-    }
-
-    ul { 
-      margin-left: 20px; 
-      margin-bottom: 10px; 
-    }
-
-    ol { 
-      margin-left: 20px; 
-      margin-bottom: 10px; 
-    }
-
-    table { 
-      width: 100%; 
-      border-collapse: collapse; 
-      margin: 10px 0; 
-    }
-
-    table, th, td { 
-      border: 1px solid #666; 
-    }
-
-    th, td { 
-      padding: 10px; 
-      text-align: left; 
-    }
-
-    pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-      margin-bottom: 15px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Text Mining Exam Answers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background: #f8f8f8;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .section {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-top: 20px;
+        }
+        b {
+            color: #222;
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>Exam Answers – Big Data & Hadoop</h1>
+<h1>Text Mining – Complete Exam Answers</h1>
 
-<!-- SECTION A -->
-<section>
-  <h2>SECTION A</h2>
+<div class="section">
+    <h2>SECTION A (20–30 Words Answers)</h2>
 
-  <h3>A1. Issues of Big Data Handling</h3>
-  <ul>
-    <li>Storage and scalability challenges.</li>
-    <li>High processing speed requirements due to data velocity.</li>
-    <li>Handling variety: structured, semi-structured, unstructured.</li>
-    <li>Ensuring data quality and correctness.</li>
-    <li>Security and privacy issues.</li>
-    <li>Need for fault tolerance in distributed systems.</li>
-  </ul>
+    <div class="question">
+        <p><b>Q A1. Define candidate keywords in RAKE.</b></p>
+        <p>Candidate keywords are contiguous sequences of non-stopwords extracted from a text after removing stopwords and punctuation. These meaningful word groups act as potential keyword phrases for scoring.</p>
+    </div>
 
-  <h3>A2. Mapping Views to Big Data Characteristics</h3>
-  <table>
-    <tr><th>Given View</th><th>Characteristic</th></tr>
-    <tr><td>Connectedness of Data</td><td>Valence</td></tr>
-    <tr><td>Quantity</td><td>Volume</td></tr>
-    <tr><td>Correctness</td><td>Veracity</td></tr>
-    <tr><td>Trustworthiness</td><td>Validity</td></tr>
-  </table>
+    <div class="question">
+        <p><b>Q A2. Purpose of a stop list in keyword extraction.</b></p>
+        <p>A stop list removes very common, low-information words such as “is”, “the”, and “of” so that keyword extraction focuses on meaningful, content-rich phrases only.</p>
+    </div>
 
-  <h3>A3. CAP Theorem & Example</h3>
-  <p>
-    CAP theorem states that a distributed system cannot guarantee Consistency, Availability, and Partition Tolerance simultaneously.  
-    It can provide only two of the three at any given time.
-  </p>
-  <ul>
-    <li>HBase → CP (Consistency + Partition Tolerance)</li>
-    <li>Cassandra → AP (Availability + Partition Tolerance)</li>
-  </ul>
+    <div class="question">
+        <p><b>Q A3. Difference between precision and recall.</b></p>
+        <p>Precision measures how many extracted keywords are correct. Recall measures how many of the true keywords are successfully extracted by the system.</p>
+    </div>
+</div>
 
-</section>
+<div class="section">
+    <h2>SECTION B (150–200 Words Answers)</h2>
 
-<!-- SECTION B -->
-<section>
-  <h2>SECTION B</h2>
+    <div class="question">
+        <p><b>Q B1. RAKE Computation</b></p>
+        <p><b>a) Candidate keywords after removing stopwords:</b><br>
+            text mining, process, extracting useful knowledge, unstructured data, keyword extraction, important task, text mining</p>
 
-  <h3>B1. Differences Between Hadoop Versions + HDFS Components</h3>
+        <p><b>b) Co-occurrence graph:</b><br>
+            text–mining, extracting–useful–knowledge, unstructured–data, keyword–extraction, important–task</p>
 
-  <h4>Differences</h4>
-  <table>
-    <tr><th>Hadoop 1.x</th><th>Hadoop 2.x</th></tr>
-    <tr><td>MapReduce handles processing + resource mgmt</td><td>YARN introduced for resource mgmt</td></tr>
-    <tr><td>Only MapReduce jobs supported</td><td>Multiple engines: Spark, Tez, Storm</td></tr>
-  </table>
+        <p><b>c) Degree & frequency table:</b></p>
+        <ul>
+            <li>text: freq 2, degree 2</li>
+            <li>mining: 2, 2</li>
+            <li>process: 1, 0</li>
+            <li>extracting: 1, 2</li>
+            <li>useful: 1, 2</li>
+            <li>knowledge: 1, 2</li>
+            <li>unstructured: 1, 1</li>
+            <li>data: 1, 1</li>
+            <li>keyword: 1, 1</li>
+            <li>extraction: 1, 1</li>
+            <li>important: 1, 1</li>
+            <li>task: 1, 1</li>
+        </ul>
 
-  <h4>NameNode</h4>
-  <ul>
-    <li>Stores metadata: file names, block locations, permissions.</li>
-    <li>Does not store actual data.</li>
-    <li>Single point of failure in Hadoop 1.x.</li>
-  </ul>
+        <p><b>d) RAKE scores:</b><br>
+        text mining = 2<br>
+        extracting useful knowledge = 6 (highest)<br>
+        unstructured data = 2<br>
+        keyword extraction = 2<br>
+        important task = 2</p>
+    </div>
 
-  <h4>Secondary NameNode</h4>
-  <ul>
-    <li>Merges FSImage and EditLogs periodically.</li>
-    <li>Helps in faster NameNode recovery.</li>
-    <li>Not a backup NameNode.</li>
-  </ul>
+    <div class="question">
+        <p><b>Q B2. Need for evaluating keyword extraction on new articles</b></p>
+        <p>Evaluating keyword extraction algorithms on new articles is important because language, writing styles, and topical vocabulary change over time. As new domains and terminology emerge, older models may fail to capture relevant keywords. Continuous evaluation ensures that extracted keywords stay accurate, up-to-date, and representative of the article’s core meaning. It also detects issues such as bias, topic drift, and domain dependency, which can reduce performance on new content. Evaluation helps maintain robustness, ensuring the system works effectively for diverse content types such as blogs, news, and technical reports. Without fresh evaluation, models become outdated and lose reliability.</p>
+    </div>
 
-  <h3>B2. Advantages of NoSQL Over SQL</h3>
-  <ul>
-    <li>Schema-less and flexible structure.</li>
-    <li>Easy horizontal scaling across clusters.</li>
-    <li>High performance for large datasets.</li>
-    <li>Built-in replication and fault tolerance.</li>
-    <li>Suitable for Big Data and real-time applications.</li>
-  </ul>
+    <div class="question">
+        <p><b>Q B3. SVD & LSA Usage</b></p>
+        <p><b>a)</b> SVD decomposes the term-document matrix into U, Σ, and Vᵀ. A rank-2 approximation retains only the top two singular values, capturing the most important semantic structure while removing noise.</p>
+        <p><b>b)</b> LSA uses this reduced semantic space to measure document similarity. Even if documents do not share exact terms, LSA groups them based on latent relationships. Thus D1 and D2 become closer because they share semantic context, making similarity detection more accurate.</p>
+    </div>
 
-  <h3>B3. Steps in Writing a File in Hadoop (HDFS)</h3>
-  <ol>
-    <li>Client requests NameNode to create file.</li>
-    <li>NameNode verifies and allocates blocks.</li>
-    <li>NameNode selects DataNodes for replication.</li>
-    <li>Client writes data to first DataNode.</li>
-    <li>Data pipelined to other replica nodes.</li>
-    <li>DataNodes send acknowledgment back.</li>
-    <li>Client signals completion to NameNode.</li>
-  </ol>
+    <div class="question">
+        <p><b>Q B4. Tucker1 Method in Multilingual Clustering</b></p>
+        <p>The Tucker1 method decomposes multilingual data stored as a 3-way tensor (terms × documents × languages). It captures shared semantic features across languages by extracting a low-dimensional core representation. This representation aligns multilingual documents in a unified semantic space, enabling cross-lingual comparison. Dimensionality reduction removes noise and linguistic variations, improving clustering quality. Tucker1 reveals hidden semantic similarities between documents even when written in different languages.</p>
+    </div>
+</div>
 
-  <h3>B4. Role of MapReduce Components</h3>
+<div class="section">
+    <h2>SECTION C (300–350 Words Answer)</h2>
 
-  <h4>Mapper</h4>
-  <p>Produces key–value pairs from input data.</p>
+    <div class="question">
+        <p><b>Q C1. Role of Text Visualization in Anomaly & Trend Detection</b></p>
+        <p>Text visualization techniques help analysts identify anomalies, emerging topics, and long-term trends within large textual datasets. Tag clouds visually emphasize frequently appearing terms, allowing sudden spikes or drops to be detected easily. For instance, an unexpected rise in words such as “breach” or “attack” in log data may indicate a cybersecurity anomaly.</p>
 
-  <h4>Reducer</h4>
-  <p>Aggregates values for each key and produces final output.</p>
+        <p>Authorship analysis visualizations highlight structural writing patterns such as sentence length, vocabulary diversity, and stylometric features. These can expose anomalies like plagiarism, impersonation, or unusual writing behavior. Trend lines and temporal heatmaps show how keyword frequencies evolve over time, helping track thematic progression in news, social media, or research documents.</p>
 
-  <h4>Combiner</h4>
-  <p>Acts as a mini-reducer to reduce data transfer size.</p>
+        <p>Change-tracking visualizations identify modifications across evolving text collections, making concept drift easier to detect. For example, during a pandemic, the shift from “outbreak” to “lockdown” to “vaccination” can be visualized clearly.</p>
 
-  <h4>Partitioner</h4>
-  <p>Decides which reducer receives which key.</p>
-
-</section>
-
-<!-- SECTION C -->
-<section>
-  <h2>SECTION C</h2>
-
-  <h3>C1. Detailed MapReduce Stages for Finding Average Temperature in Districts of Rajasthan</h3>
-
-  <p>This MapReduce job calculates the average temperature for each district in Rajasthan by processing large sets of temperature records. Below are the complete stages involved:</p>
-
-  <h4>1. Input Format</h4>
-  <p>The input dataset typically contains weather entries with fields:</p>
-
-  <ul>
-    <li>District Name</li>
-    <li>Date</li>
-    <li>Temperature (in °C)</li>
-  </ul>
-
-  <p><strong>Example input:</strong></p>
-  <pre>
-Jaipur  2023-06-01  32
-Jaipur  2023-06-02  34
-Udaipur 2023-06-01  28
-Udaipur 2023-06-02  30
-  </pre>
-
-  <h4>2. Mapper Phase</h4>
-  <p>
-    The mapper reads each line, extracts the district and temperature, and outputs a key-value pair.
-  </p>
-  <p><strong>Mapper Output Format:</strong> (district, temperature)</p>
-  <pre>
-Jaipur   32
-Jaipur   34
-Udaipur  28
-Udaipur  30
-  </pre>
-
-  <h4>3. Shuffle and Sort Phase</h4>
-  <p>
-    This phase performs:
-  </p>
-  <ul>
-    <li><strong>Grouping:</strong> Groups all records of each district.</li>
-    <li><strong>Sorting:</strong> Ensures keys are sorted for reducers.</li>
-  </ul>
-
-  <p><strong>Shuffle Output Example:</strong></p>
-  <pre>
-Jaipur   [32, 34]
-Udaipur  [28, 30]
-  </pre>
-
-  <h4>4. Reducer Phase</h4>
-  <p>
-    The reducer calculates:
-  </p>
-  <ul>
-    <li>Sum of all temperatures</li>
-    <li>Count of temperature readings</li>
-    <li>Average = sum / count</li>
-  </ul>
-
-  <p><strong>Reducer Output Example:</strong></p>
-  <pre>
-Jaipur   33.0°C
-Udaipur  29.0°C
-  </pre>
-
-  <h4>5. Final Output</h4>
-  <p>Final district-wise average temperature values:</p>
-  <pre>
-Jaipur   33.0°C
-Udaipur  29.0°C
-Jodhpur  31.2°C
-Kota     30.5°C
-Bikaner  34.1°C
-  </pre>
-
-  <h4>6. Summary of MapReduce Flow</h4>
-  <ol>
-    <li><strong>Mapper:</strong> Emits (district, temperature)</li>
-    <li><strong>Shuffle:</strong> Groups temperatures by district</li>
-    <li><strong>Reducer:</strong> Computes average</li>
-    <li><strong>Output:</strong> District → Average temperature</li>
-  </ol>
-
-  <p>
-    This method is efficient for large datasets, making it ideal for climate analysis and Big Data processing.
-  </p>
-
-</section>
+        <p>Advanced tools such as topic maps, document networks, and t-SNE visual projections help uncover hidden clusters, semantic relationships, and outlier documents. These visualizations simplify complex text analysis, enabling faster decision-making.</p>
+    </div>
+</div>
 
 </body>
 </html>
