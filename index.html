@@ -3,100 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Website</title>
+  <title>Exam Answers – Big Data & Hadoop</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1rem 2rem;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    nav .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .hero {
-      background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-    }
-
-    .container {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; background: #f5f5f5; }
+    h1, h2, h3 { margin-bottom: 10px; color: #333; }
+    section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    ul { margin-left: 20px; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+    table, th, td { border: 1px solid #666; }
+    th, td { padding: 10px; text-align: left; }
   </style>
 </head>
+
 <body>
 
-guyguyguygyuyu
-  
+<h1>Exam Answers – Big Data & Hadoop</h1>
 
-</body>
-</html>
+<!-- SECTION A -->
+<section>
+  <h2>SECTION A</h2>
+
+  <h3>A1. Issues of Big Data Handling</h3>
+  <ul>
+    <li>Storage and scalability challenges.</li>
+    <li>High processing speed requirements due to data velocity.</li>
+    <li>Handling variety: structured, semi-structured, unstructured.</li>
+    <li>Ensuring data quality and correctness.</li>
+    <li>Security and privacy issues.</li>
+    <li>Need for fault tolerance in distributed systems.</li>
+  </ul>
+
+  <h3>A2. Mapping Views to Big Data Characteristics</h3>
+  <table>
+    <tr><th>Given View</th><th>Characteristic</th></tr>
+    <tr><td>Connectedness of Data</td><td>Valence</td></tr>
+    <tr><td>Quantity</td><td>Volume</td></tr>
+    <tr><td>Correctness</td><td>Veracity</td></tr>
+    <tr><td>Trustworthiness</td><td>Validity</td></tr>
+  </table>
+
+  <h3>A3. CAP Theorem & Example</h3>
+  <p>
+    CAP theorem states that a distributed system cannot guarantee Consistency, Availability, and Partition Tolerance simultaneously.  
+    It can provide only two of the three at any given time.
+  </p>
+  <ul>
+    <li>HBase → CP (Consistency + Partition Tolerance)</li>
+    <li>Cassandra → AP (Availability + Partition Tolerance)</li>
+  </ul>
+
+</section>
+
+<!-- SECTION B -->
+<section>
+  <h2>SECTION B</h2>
+
+  <h3>B1. Differences Between Hadoop Versions + HDFS Components</h3>
+
+  <h4>Differences</h4>
+  <table>
+    <tr><th>Hadoop 1.x</th><th>Hadoop 2.x</th></tr>
+    <tr><td>MapReduce handles processing + resource mgmt</td><td>YARN introduced for resource mgmt</td></tr>
+    <tr><td>Only MapReduce jobs supported</td><td>Multiple engines: Spark, Tez, Storm</td></tr>
+  </table>
+
+  <h4>NameNode</h4>
+  <ul>
+    <li>Stores metadata: file names, block locations, permissions.</li>
+    <li>Does not store actual data.</li>
+    <li>Single point of failure in Hadoop 1.x.</li>
+  </ul>
+
+  <h4>Secondary NameNode</h4>
+  <ul>
+    <li>Merges FSImage and EditLogs periodically.</li>
+    <li>Helps in faster NameNode recovery.</li>
+    <li>Not a backup NameNode.</li>
+  </ul>
+
+  <h3>B2. Advantages of NoSQL Over SQL</h3>
+  <ul>
+    <li>Schema-less and flexible structure.</li>
+    <li>Easy horizontal scaling across clusters.</li>
+    <li>High performance for large datasets.</li>
+    <li>Built-in replication and fault tolerance.</li>
+    <li>Suitable for Big Data and real-time applications.</li>
+  </ul>
+
+  <h3>B3. Steps in Writing a File in Hadoop (HDFS)</h3>
+  <ol>
+    <li>Client requests NameNode to create file.</li>
+    <li>NameNode verifies and allocates blocks.</li>
+    <li>NameNode selects DataNodes for replication.</li>
+    <li>Client writes data to first DataNode.</li>
+    <li>Data pipelined to other replica nodes.</li>
+    <li>DataNodes send acknowledgment back.</li>
+    <li>Client signals completion to NameNode.</li>
+  </ol>
+
+  <h3>B4. Role of MapReduce Components</h3>
+  <h4>Mapper</h4>
+  <p>Produces key–value pairs from input data.</p>
+
+  <h4>Reducer</h4>
+  <p>Aggregates values for each key and produces final output.</p>
+
+  <h4>Combiner</h4>
+  <p>Acts as a mini-reducer to reduce data transfer size.</p>
+
+  <h4>Partitioner</h4>
+  <p>Decides which reducer receives which key.</p>
+
+</section>
+
+<!-- SECTION C -->
+<section>
+  <h2>SECTION C</h2>
+
+  <h3>C1. MapReduce Stages for Finding Average Temperature (Rajasthan Districts)</h3>
+  <h4>Mapper</h4>
+  <p>Reads input <district, temperature> and outputs (district, temperature).</p>
+
+  <h4>Shuffle & Sort</h4>
+  <p>Groups all temperatures belonging to the same district.</p>
+
+  <h4>Reducer</h4>
+  <p>Calculates average by sum(values) / count(values) for each district.</p>
+
+  <h4>Final Output</h4>
+  <p>District-wise average temperature values.</p>
+
+</section>
+
 </body>
 </html>
