@@ -1,157 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyber Security Exam Answers</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Healthcare & Machine Learning — Study Guide</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-      background: #f4f4f4;
-      padding-bottom: 50px;
-    }
-
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px 15px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-    }
-
-    h2 {
-      color: #333;
-      margin: 20px 0 10px 0;
-      font-size: 1.4rem;
-    }
-
-    p, li {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: #444;
-    }
-
-    .wrapper {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.4rem;
-      }
-      h2 {
-        font-size: 1.2rem;
-      }
-    }
+    body{font-family:Arial,Helvetica,sans-serif;line-height:1.6;margin:20px;color:#111}
+    header{border-bottom:4px solid #2f6f8f;padding-bottom:10px;margin-bottom:18px}
+    h1{color:#0b4f6c}
+    h2{color:#1a6b5a}
+    .card{background:#f7fbfc;border:1px solid #e3eef0;padding:14px;margin:12px 0;border-radius:8px}
+    .example{font-style:italic;color:#333}
+    footer{margin-top:22px;font-size:0.9em;color:#555}
+    code{background:#eaeef0;padding:2px 4px;border-radius:4px}
   </style>
 </head>
-
 <body>
+  <header>
+    <h1>Healthcare & Machine Learning — Concise Guide</h1>
+    <p>A static study page covering supervised vs unsupervised learning, deep learning, neural networks, concept questions, and an analytical cancer-case discussion.</p>
+  </header>
 
-<header>
-  <h1>Cyber Security in AI — Exam Answers</h1>
-  <p>Complete One-Page Responsive Summary</p>
-</header>
+  <section class="card">
+    <h2>Supervised vs Unsupervised Learning</h2>
+    <p><strong>Supervised learning</strong> trains models using labeled examples (inputs paired with known outputs). In healthcare, a supervised model might predict disease presence from patient features — for example, using patient demographics, lab results and symptoms to predict diabetes or cardiovascular risk. The model learns the mapping from features to known diagnoses and can then predict new patients' outcomes.</p>
+    <p><strong>Unsupervised learning</strong> finds patterns in unlabeled data. In healthcare this is used for patient segmentation or clustering — e.g., grouping patients by symptom patterns, comorbidities, and treatment responses to discover subtypes of a disease or to personalize care without prior labels.</p>
+    <p class="example">Example: disease prediction = supervised (labels: disease/no disease). Patient clustering = unsupervised (no labels; find natural groups).</p>
+  </section>
 
-<div class="wrapper">
+  <section class="card">
+    <h2>Role of Multiple Hidden Layers in Deep Learning</h2>
+    <p>Multiple hidden layers allow a neural network to learn hierarchical features: early layers capture low-level patterns (edges, simple biomarkers), middle layers combine those into more complex motifs, and deeper layers represent high-level abstractions (lesion shapes, diagnostic signatures). Depth enables the model to represent complex, non-linear relationships between input data and outcomes, improving performance on tasks like image interpretation or time-series forecasting when sufficient data is available.</p>
+    <p class="example">Healthcare example: deep convolutional networks detect tumors in MRI scans by progressively learning edges → textures → anatomical shapes → tumor-specific patterns.</p>
+  </section>
 
-  <!-- SECTION A -->
-  <h2>Section A – Q A1 (i)</h2>
-  <p><b>Cryptanalysis</b> is the method of decoding a message from unreadable format back to readable format without knowing the encryption key.</p>
+  <section class="card">
+    <h2>What is a Neural Network?</h2>
+    <p>A neural network is a computational model inspired by biological neurons. It consists of layers of interconnected nodes (neurons) that transform inputs through weighted sums and non-linear activation functions. During training the network adjusts weights to minimize a loss function, enabling it to approximate complex mappings (classification, regression, segmentation) from inputs to outputs.</p>
+    <p><strong>Two healthcare application areas:</strong> (1) Medical imaging (tumor detection, segmentation of organs); (2) Electronic health record (EHR) modeling — predicting readmission risk, mortality, or treatment response from longitudinal records.</p>
+  </section>
 
-  <h2>Section A – Q A1 (ii)</h2>
-  <p>This issue is called <b>Sensitive Data Exposure</b>. It occurs when sensitive information (passwords, credit card numbers, health data) is not properly protected.</p>
+  <hr>
+  <h2>SECTION B — Concept Based Questions</h2>
 
-  <h2>Section A – Q A2</h2>
-  <p><b>Phishing:</b> Attackers trick users with fake emails/websites into giving away credentials.</p>
-  <p><b>Pharming:</b> Attackers redirect users to fake websites by manipulating DNS, even with correct URL.</p>
+  <article class="card">
+    <h3>1) Linear Regression & Decision Tree in Healthcare</h3>
+    <p>
+      <strong>Linear regression:</strong> Linear regression models a continuous outcome as a weighted sum of input features. To estimate a patient’s systolic blood pressure (SBP), for example, a model could use age, weight (BMI), daily sodium intake and activity level as predictors. The fitted model yields coefficients that quantify how much SBP changes per unit change in each predictor (e.g., +0.8 mmHg per year of age). Clinically, the model provides an interpretable baseline estimate, highlights influential risk factors, and supports population-level screening or resource allocation decisions. Assumptions (linearity, normal residuals) should be checked and models updated with representative data.
+    </p>
+    <p>
+      <strong>Decision tree:</strong> A decision tree makes predictions by splitting features into a flowchart of decisions. For breast cancer risk, features like age, family history, lump characteristics, and imaging scores can be used: the tree first splits on a high-impact feature (e.g., suspicious imaging score), then on family history, and so on, until leaves produce probability estimates or class labels (benign vs malignant). Trees are easy to interpret because each prediction follows a clear sequence of human-readable rules (if-then branches), enabling clinicians to trace why the model made a particular decision and to validate key splits against domain knowledge.
+    </p>
+  </article>
 
-  <h2>Section A – Q A3</h2>
-  <p><b>Threat hunting in memory:</b> Actively analyzing RAM for malware or anomalies.</p>
-  <p><b>Techniques:</b></p>
-  <ul>
-    <li>Checking memory artifacts (DLLs, injected threads).</li>
-    <li>Using Volatility for memory forensics.</li>
-  </ul>
+  <article class="card">
+    <h3>2) Role of AI in Medical Imaging</h3>
+    <p>
+      AI augments medical imaging by automating repetitive tasks, improving sensitivity, and standardizing interpretation. Deep learning models (especially convolutional neural networks) can detect subtle patterns invisible to the naked eye, prioritize urgent cases, and produce quantitative outputs (segmentation masks, volume estimates). Example: AI-assisted mammography workflow where an algorithm highlights suspicious regions and provides a risk score; radiologists then review those regions, increasing cancer detection rates while reducing oversight. AI also speeds up time-consuming tasks like tumor segmentation for radiotherapy planning and reduces inter-reader variability, allowing clinicians to focus on complex decision-making and patient communication.
+    </p>
+  </article>
 
+  <article class="card">
+    <h3>3) AI in Wearable Healthcare Devices</h3>
+    <p>
+      Wearables (smartwatches, fitness trackers) collect continuous physiological signals: heart rate, activity, sleep, SpO₂, and sometimes single-lead ECG. AI analyzes these streams to detect anomalies and extract clinically meaningful features. Two specific improvements:
+    </p>
+    <ol>
+      <li><strong>Early detection of arrhythmias and cardiac events:</strong> ML models trained on labeled ECG segments can detect atrial fibrillation or abnormal rhythms from intermittent or continuous wearable ECGs, enabling earlier diagnosis and prompting timely clinical follow-up.
+      </li>
+      <li><strong>Personalized risk monitoring and behavioral interventions:</strong> AI models learn individual baselines and detect deviations (e.g., declining activity, rising resting heart rate, poor sleep) that correlate with worsening chronic conditions. Notifications and tailored interventions (exercise prompts, medication reminders) improve adherence and reduce deterioration risk.
+      </li>
+    </ol>
+    <p>Both uses increase continuous surveillance capability, leading to earlier interventions and improved patient outcomes.
+    </p>
+  </article>
 
-  <!-- SECTION B -->
-  <h2>Section B – Q B1</h2>
-  <p><b>Cybercriminals include:</b> Hackers, fraudsters, insiders, cyber-terrorists, crime groups.</p>
-  <p><b>Categories:</b></p>
-  <ul>
-    <li>Black-hat Hackers</li>
-    <li>Grey-hat Hackers</li>
-    <li>Script Kiddies</li>
-    <li>State-sponsored Hackers</li>
-    <li>Insiders</li>
-  </ul>
+  <hr>
+  <h2>SECTION C — Analytical Scenario</h2>
+  <article class="card">
+    <h3>Case: Mrs. Anita Sharma (52) — Breast Cancer Diagnosis & Management</h3>
+    <p>
+      Early detection of cancer markedly improves prognosis because treatments are more likely to be curative when disease is localized. For breast cancer, stage at diagnosis is a principal determinant of survival: stage I (small, localized) often allows breast-conserving surgery with excellent 5-year survival rates, while stage IV (metastatic) generally requires systemic therapy and has lower curative potential. In Mrs. Anita Sharma’s case, the discovery of a palpable lump, family history, mammography and biopsy confirming malignancy warrant further imaging (MRI, PET) to define local extent and search for distant metastases. If imaging shows the disease confined to the breast and nearby nodes (early stage), the care team may recommend lumpectomy plus sentinel-node biopsy followed by adjuvant radiation and possibly hormone or targeted therapy depending on receptor status. If imaging reveals nodal spread or larger tumor size (locally advanced), the team may choose neoadjuvant chemotherapy to shrink the tumor before surgery to increase the chance of breast conservation and to assess tumor chemosensitivity. For metastatic disease, systemic therapies (chemotherapy, targeted agents, immunotherapy) become central and treatment focuses on prolonging survival and quality of life rather than cure.
+    </p>
+    <p>
+      Beyond staging, tumor biology (hormone receptor and HER2 status, grade, genomic assays) guides treatment personalization: hormone-receptor positive tumors may benefit from endocrine therapy, HER2-positive from anti-HER2 agents, and high-risk genomic profiles from more aggressive chemotherapy. Multidisciplinary care (surgery, medical oncology, radiation oncology, pathology, radiology, nursing, and psychosocial support) ensures optimal sequencing of diagnostics and therapies, symptom control, and survivorship planning. Early detection therefore increases curative options, simplifies treatment, reduces morbidity, and substantially improves long-term outcomes.
+    </p>
+  </article>
 
-  <h2>Section B – Q B2</h2>
-  <p><b>Security-Specific Mechanisms:</b> Encryption, authentication, signatures, access control.</p>
-  <p><b>Pervasive Mechanisms:</b> Logging, auditing, IDS, security management.</p>
-
-  <h2>Section B – Q B3</h2>
-  <ul>
-    <li>Automated vulnerability scanning</li>
-    <li>Continuous penetration testing</li>
-    <li>SIEM-based monitoring</li>
-    <li>Threat intelligence updates</li>
-    <li>Red vs Blue team exercises</li>
-  </ul>
-
-  <h2>Section B – Q B4</h2>
-  <p><b>Brute-force attack:</b></p>
-  <ul>
-    <li><b>Online:</b> Slow and detectable, tries passwords on live system.</li>
-    <li><b>Offline:</b> Fast and dangerous; cracks stolen password hashes.</li>
-  </ul>
-  <p><b>Replay attack:</b> Reusing captured login packets.</p>
-  <p><b>Weak implementation attack:</b> Exploiting outdated crypto, bad key management.</p>
-
-
-  <!-- SECTION C -->
-  <h2>Section C – Q C1 (a)</h2>
-  <p><b>Static Analysis:</b> Examines malware without running it; fast but fails against obfuscation.</p>
-  <p><b>Dynamic Analysis:</b> Executes malware in sandbox; reveals behavior but resource-heavy.</p>
-  <p><b>Impact:</b> Static is quick but limited; dynamic is accurate but slower; hybrid is ideal.</p>
-
-  <h2>Section C – Q C1 (b)</h2>
-  <p><b>Major Challenges in Malware Detection:</b></p>
-  <ul>
-    <li>Polymorphic & metamorphic malware</li>
-    <li>Fileless malware</li>
-    <li>Zero-day vulnerabilities</li>
-    <li>Sandbox evasion</li>
-    <li>Supply chain attacks</li>
-    <li>Encrypted C2 channels</li>
-    <li>Rapid mutation via malware kits</li>
-    <li>Insider threats</li>
-  </ul>
-
-</div>
-
+  <footer>
+    <p>Prepared for study & revision. Modify or reuse this HTML for teaching, printing, or posting as a static resource.</p>
+  </footer>
 </body>
 </html>
