@@ -1,122 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Text Mining Exam Answers</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            background: #f8f8f8;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .section {
-            background: #ffffff;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .question {
-            margin-top: 20px;
-        }
-        b {
-            color: #222;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Security Exam Answers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f7f7f7;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      margin-bottom: 0.7rem;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Text Mining – Complete Exam Answers</h1>
+<header>
+  <h1>Cyber Security in Artificial Intelligence – Exam Answers</h1>
+</header>
 
-<div class="section">
-    <h2>SECTION A (20–30 Words Answers)</h2>
+<div class="container">
 
-    <div class="question">
-        <p><b>Q A1. Define candidate keywords in RAKE.</b></p>
-        <p>Candidate keywords are contiguous sequences of non-stopwords extracted from a text after removing stopwords and punctuation. These meaningful word groups act as potential keyword phrases for scoring.</p>
-    </div>
+  <!-- SECTION A -->
+  <div class="card">
+    <h2>Section A – Q A1 (i)</h2>
+    <p><b>Answer:</b> The technique is called <b>Cryptanalysis</b>. It breaks encryption and recovers original messages without knowing the key.</p>
+  </div>
 
-    <div class="question">
-        <p><b>Q A2. Purpose of a stop list in keyword extraction.</b></p>
-        <p>A stop list removes very common, low-information words such as “is”, “the”, and “of” so that keyword extraction focuses on meaningful, content-rich phrases only.</p>
-    </div>
+  <div class="card">
+    <h2>Section A – Q A1 (ii)</h2>
+    <p><b>Answer:</b> This refers to <b>Sensitive Data Exposure</b>, where sensitive information like passwords or credit card data is not properly protected.</p>
+  </div>
 
-    <div class="question">
-        <p><b>Q A3. Difference between precision and recall.</b></p>
-        <p>Precision measures how many extracted keywords are correct. Recall measures how many of the true keywords are successfully extracted by the system.</p>
-    </div>
+  <div class="card">
+    <h2>Section A – Q A2</h2>
+    <p><b>Phishing:</b> A social-engineering attack using fake emails/websites to steal user credentials.</p>
+    <p><b>Pharming:</b> Redirecting users to fake websites by manipulating DNS, even when the correct URL is typed.</p>
+  </div>
+
+  <div class="card">
+    <h2>Section A – Q A3</h2>
+    <p><b>Threat Hunting in Memory:</b> Actively detecting malware within RAM.</p>
+    <p><b>Techniques:</b></p>
+    <ul>
+      <li>Scanning memory artifacts like DLLs and injected threads.</li>
+      <li>Using tools like Volatility for forensic memory analysis.</li>
+    </ul>
+  </div>
+
+  <!-- SECTION B -->
+  <div class="card">
+    <h2>Section B – Q B1</h2>
+    <p><b>Cybercriminal Cases:</b> Hackers, fraudsters, insiders, cyber-terrorists, organized crime.</p>
+    <p><b>Categories:</b></p>
+    <ul>
+      <li>Black-hat Hackers</li>
+      <li>Grey-hat Hackers</li>
+      <li>Script Kiddies</li>
+      <li>State-sponsored Hackers</li>
+      <li>Insider Threats</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Section B – Q B2</h2>
+    <p><b>Security-Specific Mechanisms:</b> Encryption, authentication, digital signatures, access control.</p>
+    <p><b>Pervasive Mechanisms:</b> Auditing, logging, IDS, security management.</p>
+  </div>
+
+  <div class="card">
+    <h2>Section B – Q B3</h2>
+    <ul>
+      <li>Automated vulnerability scanning</li>
+      <li>Continuous penetration testing</li>
+      <li>SIEM-based real-time monitoring</li>
+      <li>Threat intelligence integration</li>
+      <li>Red-team vs blue-team exercises</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Section B – Q B4</h2>
+    <p><b>Brute-force Attack:</b></p>
+    <ul>
+      <li>Online: Slow, detectable, guessing passwords live.</li>
+      <li>Offline: Fast, cracks stolen hashed passwords.</li>
+    </ul>
+    <p><b>Replay Attack:</b> Reusing captured authentication data.</p>
+    <p><b>Weak Implementation Attack:</b> Exploiting outdated algorithms or poor key management.</p>
+  </div>
+
+  <!-- SECTION C -->
+  <div class="card">
+    <h2>Section C – Q C1 (a)</h2>
+    <p><b>Static Analysis:</b> Inspects code without running it; detects signatures and patterns; fast but weak against obfuscation.</p>
+    <p><b>Dynamic Analysis:</b> Executes malware in sandbox; reveals runtime behavior; strong but slower and resource-heavy.</p>
+    <p><b>Effectiveness:</b> Static is quick but limited; dynamic is accurate but costly; hybrid gives best detection.</p>
+  </div>
+
+  <div class="card">
+    <h2>Section C – Q C1 (b)</h2>
+    <p><b>Challenges in Malware Detection:</b></p>
+    <ul>
+      <li>Polymorphism & metamorphism</li>
+      <li>Fileless malware execution</li>
+      <li>Zero-day vulnerabilities</li>
+      <li>Sandbox detection and evasion</li>
+      <li>Supply chain attacks</li>
+      <li>Encrypted command & control channels</li>
+      <li>Rapid mutation via malware kits</li>
+      <li>Insider threats</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="section">
-    <h2>SECTION B (150–200 Words Answers)</h2>
-
-    <div class="question">
-        <p><b>Q B1. RAKE Computation</b></p>
-        <p><b>a) Candidate keywords after removing stopwords:</b><br>
-            text mining, process, extracting useful knowledge, unstructured data, keyword extraction, important task, text mining</p>
-
-        <p><b>b) Co-occurrence graph:</b><br>
-            text–mining, extracting–useful–knowledge, unstructured–data, keyword–extraction, important–task</p>
-
-        <p><b>c) Degree & frequency table:</b></p>
-        <ul>
-            <li>text: freq 2, degree 2</li>
-            <li>mining: 2, 2</li>
-            <li>process: 1, 0</li>
-            <li>extracting: 1, 2</li>
-            <li>useful: 1, 2</li>
-            <li>knowledge: 1, 2</li>
-            <li>unstructured: 1, 1</li>
-            <li>data: 1, 1</li>
-            <li>keyword: 1, 1</li>
-            <li>extraction: 1, 1</li>
-            <li>important: 1, 1</li>
-            <li>task: 1, 1</li>
-        </ul>
-
-        <p><b>d) RAKE scores:</b><br>
-        text mining = 2<br>
-        extracting useful knowledge = 6 (highest)<br>
-        unstructured data = 2<br>
-        keyword extraction = 2<br>
-        important task = 2</p>
-    </div>
-
-    <div class="question">
-        <p><b>Q B2. Need for evaluating keyword extraction on new articles</b></p>
-        <p>Evaluating keyword extraction algorithms on new articles is important because language, writing styles, and topical vocabulary change over time. As new domains and terminology emerge, older models may fail to capture relevant keywords. Continuous evaluation ensures that extracted keywords stay accurate, up-to-date, and representative of the article’s core meaning. It also detects issues such as bias, topic drift, and domain dependency, which can reduce performance on new content. Evaluation helps maintain robustness, ensuring the system works effectively for diverse content types such as blogs, news, and technical reports. Without fresh evaluation, models become outdated and lose reliability.</p>
-    </div>
-
-    <div class="question">
-        <p><b>Q B3. SVD & LSA Usage</b></p>
-        <p><b>a)</b> SVD decomposes the term-document matrix into U, Σ, and Vᵀ. A rank-2 approximation retains only the top two singular values, capturing the most important semantic structure while removing noise.</p>
-        <p><b>b)</b> LSA uses this reduced semantic space to measure document similarity. Even if documents do not share exact terms, LSA groups them based on latent relationships. Thus D1 and D2 become closer because they share semantic context, making similarity detection more accurate.</p>
-    </div>
-
-    <div class="question">
-        <p><b>Q B4. Tucker1 Method in Multilingual Clustering</b></p>
-        <p>The Tucker1 method decomposes multilingual data stored as a 3-way tensor (terms × documents × languages). It captures shared semantic features across languages by extracting a low-dimensional core representation. This representation aligns multilingual documents in a unified semantic space, enabling cross-lingual comparison. Dimensionality reduction removes noise and linguistic variations, improving clustering quality. Tucker1 reveals hidden semantic similarities between documents even when written in different languages.</p>
-    </div>
-</div>
-
-<div class="section">
-    <h2>SECTION C (300–350 Words Answer)</h2>
-
-    <div class="question">
-        <p><b>Q C1. Role of Text Visualization in Anomaly & Trend Detection</b></p>
-        <p>Text visualization techniques help analysts identify anomalies, emerging topics, and long-term trends within large textual datasets. Tag clouds visually emphasize frequently appearing terms, allowing sudden spikes or drops to be detected easily. For instance, an unexpected rise in words such as “breach” or “attack” in log data may indicate a cybersecurity anomaly.</p>
-
-        <p>Authorship analysis visualizations highlight structural writing patterns such as sentence length, vocabulary diversity, and stylometric features. These can expose anomalies like plagiarism, impersonation, or unusual writing behavior. Trend lines and temporal heatmaps show how keyword frequencies evolve over time, helping track thematic progression in news, social media, or research documents.</p>
-
-        <p>Change-tracking visualizations identify modifications across evolving text collections, making concept drift easier to detect. For example, during a pandemic, the shift from “outbreak” to “lockdown” to “vaccination” can be visualized clearly.</p>
-
-        <p>Advanced tools such as topic maps, document networks, and t-SNE visual projections help uncover hidden clusters, semantic relationships, and outlier documents. These visualizations simplify complex text analysis, enabling faster decision-making.</p>
-    </div>
-</div>
+<footer>
+  <p>Cyber Security Exam Answers – Generated for Practice & Revision</p>
+</footer>
 
 </body>
 </html>
