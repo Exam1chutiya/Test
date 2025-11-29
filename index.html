@@ -1,13 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Ready!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recommender System – Complete Detailed Answers</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f4f6f9;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    .answer-block {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #eef2ff;
+        border-left: 6px solid #3d5afe;
+        border-radius: 8px;
+    }
+    .answer-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #222;
+    }
+    code {
+        background: #f1f1f1;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 15px 0;
+    }
+    th, td {
+        border: 1px solid #bbb;
+        padding: 8px;
+        text-align: center;
+    }
+    @media(max-width: 600px){
+        body { padding: 10px; }
+        .container { padding: 18px; }
+    }
+</style>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 70px;">
-    <h1>All Ready ✔️</h1>
-    <p>SEND NUDES  </p>
-    <p><strong>GANJA BHAWAN ZINDABAD </strong></p>
+
+<body>
+<div class="container">
+
+<h1>Complete Detailed Answers (1–14)</h1>
+
+<!-- ANSWER 1 -->
+<div class="answer-block">
+<div class="answer-title">Answer 1</div>
+Covariance matrix is a square matrix showing how multiple variables vary together.  
+Diagonal elements represent variance of each variable; off-diagonal elements represent covariance between pairs of variables.  
+
+Its purpose is:
+- Identify relationships between variables  
+- Detect redundancy  
+- Foundation for PCA, SVD, factor models  
+- Used to extract directions of maximum variance for dimensionality reduction  
+</div>
+
+<!-- ANSWER 2 -->
+<div class="answer-block">
+<div class="answer-title">Answer 2</div>
+<b>Feature Combination</b>: Directly merges features from multiple sources into a single vector. Improves representation for recommender models but may increase dimensionality.
+
+<b>Feature Augmentation</b>: Keeps original features and appends metadata (genre, tags, user profile). Helps capture context.
+
+<b>Weighted Hybridization</b>: Predictions from multiple models (CF + Content) are combined with weights.  
+Formula: FinalScore = w1*CF + w2*Content.  
+Useful when one model performs better in sparse datasets.
+</div>
+
+<!-- ANSWER 3 -->
+<div class="answer-block">
+<div class="answer-title">Answer 3</div>
+Applications include:
+- E-commerce product recommendations  
+- Music/movie streaming (Netflix, Spotify)  
+- Education personalization (course suggestion)  
+- Tourism/travel recommendations  
+- Job matching (LinkedIn)  
+- Social media feed ranking  
+- Food delivery item ranking  
+- Personalized advertising  
+</div>
+
+<!-- ANSWER 4 -->
+<div class="answer-block">
+<div class="answer-title">Answer 4</div>
+(i) Collaborative filtering relies on item features → <b>False</b>  
+(ii) PCA and SVD both extract latent features → <b>True</b>  
+</div>
+
+<!-- ANSWER 5 -->
+<div class="answer-block">
+<div class="answer-title">Answer 5</div>
+<table>
+<tr><th>Method</th><th>Matched Concept</th></tr>
+<tr><td>SVD</td><td>Alternates optimization for matrix factorization</td></tr>
+<tr><td>Cosine Similarity</td><td>Measures angle-based similarity</td></tr>
+<tr><td>PCA</td><td>Identifies principal components</td></tr>
+<tr><td>ALS</td><td>Extracts latent factors via alternating optimization</td></tr>
+</table>
+</div>
+
+<!-- ANSWER 6 -->
+<div class="answer-block">
+<div class="answer-title">Answer 6</div>
+<b>Error-based metrics:</b> RMSE, MAE measure how close predictions are to actual ratings.  
+<b>Decision-support metrics:</b> Precision, Recall, F1 evaluate ranked recommendations.  
+<b>User-centered metrics:</b> novelty, serendipity, coverage.
+
+<b>Example RMSE vs Precision:</b>  
+A model may have low RMSE but still recommend irrelevant items → low Precision.  
+Precision focuses on top-K relevance, which is more important in real systems.
+</div>
+
+<!-- ANSWER 7 -->
+<div class="answer-block">
+<div class="answer-title">Answer 7</div>
+User A = [4,3,5], User B = [5,3,4]  
+
+Cosine similarity =  
+(4×5 + 3×3 + 5×4) / (√(4²+3²+5²) × √(5²+3²+4²))  
+= 46 / ( √50 × √50 )  
+= 46/50 = <b>0.92</b>
+
+<b>Interpretation:</b> Extremely similar taste.
+</div>
+
+<!-- ANSWER 8 -->
+<div class="answer-block">
+<div class="answer-title">Answer 8</div>
+A recommender prototype for an online bookstore uses:
+
+<b>Hybridization Strategy:</b> Weighted hybrid = CF + Content metadata (author, genre, keywords).  
+<b>ALS Matrix Factorization:</b> Decomposes R = U Σ Vᵀ to solve sparsity and infer missing ratings.  
+<b>Example:</b>
+<table>
+<tr><td>5</td><td>3</td><td>4</td></tr>
+<tr><td>4</td><td>?</td><td>5</td></tr>
+</table>
+ALS predicts the missing value using latent factors.
+</div>
+
+<!-- ANSWER 9 -->
+<div class="answer-block">
+<div class="answer-title">Answer 9</div>
+Hours studied X = [1,2,3,4,5,6]  
+Mistakes Y = [9,8,6,5,4,2]
+
+Pearson correlation r = −0.97  
+This is a strong negative relationship: more study → fewer mistakes.
+</div>
+
+<!-- ANSWER 10 -->
+<div class="answer-block">
+<div class="answer-title">Answer 10</div>
+Matrix R =
+<table>
+<tr><td>5</td><td>3</td><td>0</td></tr>
+<tr><td>4</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+</table>
+
+<b>SVD Steps:</b>  
+1. Compute RᵀR  
+2. Find eigenvalues → singular values  
+3. Compute U, Σ, Vᵀ  
+4. PCA uses covariance matrix eigenvectors  
+5. Latent features represent user interests and item characteristics  
+
+These are used to recommend missing items by comparing latent dimensions.
+</div>
+
+<!-- ANSWER 11 -->
+<div class="answer-block">
+<div class="answer-title">Answer 11</div>
+Deep Hybrid Recommenders use Neural Networks or GNNs.
+
+<b>Components:</b>  
+- User embeddings  
+- Item embeddings  
+- Interaction layer (Dot product, MLP)  
+- Loss functions: BCE, MSE  
+- Content features: text embeddings, graph features  
+
+<b>GNN architecture:</b>  
+- Graph nodes: users, items  
+- Edges: interactions  
+- GAT/GCN propagate signals  
+Outputs rating prediction + ranking score.
+</div>
+
+<!-- ANSWER 12 -->
+<div class="answer-block">
+<div class="answer-title">Answer 12</div>
+EduSmart uses a hybrid recommender combining CF + content.
+
+<b>CF:</b> Uses past interaction and similarity  
+<b>Content Filtering:</b> Uses course features (difficulty, domain)  
+<b>Prediction:</b> Weighted combination of CF & neural prediction  
+<b>Evaluation Metrics:</b> RMSE, MAE, Precision@k, Recall@k  
+<b>Cold Start:</b> Solved using course metadata instead of rating data  
+</div>
+
+<!-- ANSWER 13 -->
+<div class="answer-block">
+<div class="answer-title">Answer 13</div>
+Matrix R =
+<table>
+<tr><td>5</td><td>3</td><td>0</td><td>1</td></tr>
+<tr><td>4</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>5</td></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+</table>
+
+<b>SVD → R = U Σ Vᵀ</b>  
+
+<b>Rank-2 approximation:</b> Keep top 2 singular values:  
+R' = U₂ Σ₂ V₂ᵀ  
+
+<b>Why compression helps:</b>  
+- Faster recommendations  
+- Less memory use  
+- Removes noise  
+- Works well for large sparse matrices  
+
+<b>Frobenius Error:</b>  
+‖R − R'‖F shows how much information was lost.
+</div>
+
+<!-- ANSWER 14 -->
+<div class="answer-block">
+<div class="answer-title">Answer 14</div>
+Covariance matrix C =
+<table>
+<tr><td>4</td><td>2</td><td>0</td></tr>
+<tr><td>2</td><td>3</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>2</td></tr>
+</table>
+
+<b>Eigenvalues:</b> 5.42, 2.29, 1.29  
+<b>Eigenvectors = Principal components</b>  
+Projecting into 2D keeps highest-variance directions.
+
+<b>Benefits:</b>  
+- Helps CF + content filtering  
+- Reduces dimensionality for TF-IDF/Word2Vec  
+- Prevents overfitting by removing noise  
+</div>
+
+</div>
 </body>
 </html>
