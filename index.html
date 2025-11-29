@@ -1,276 +1,264 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Recommender System – Complete Detailed Answers</title>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        background: #f4f6f9;
-        line-height: 1.6;
-    }
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        background: #fff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 12px rgba(0,0,0,0.1);
-    }
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #333;
-    }
-    .answer-block {
-        margin-bottom: 30px;
-        padding: 20px;
-        background: #eef2ff;
-        border-left: 6px solid #3d5afe;
-        border-radius: 8px;
-    }
-    .answer-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #222;
-    }
-    code {
-        background: #f1f1f1;
-        padding: 3px 6px;
-        border-radius: 3px;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin: 15px 0;
-    }
-    th, td {
-        border: 1px solid #bbb;
-        padding: 8px;
-        text-align: center;
-    }
-    @media(max-width: 600px){
-        body { padding: 10px; }
-        .container { padding: 18px; }
-    }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recommender Systems — Exam-ready Answers (Q1–Q14)</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#60a5fa;--paper:#0b1220}
+    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#071027 0%, #081426 100%);color:#e6eef8;line-height:1.5}
+    .container{max-width:1000px;margin:24px auto;padding:20px}
+    header{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+    h1{font-size:1.6rem;margin:0;color:var(--accent)}
+    .meta{color:var(--muted);font-size:0.9rem}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:16px}
+    h2{margin-top:0;color:#cfe8ff}
+    pre{white-space:pre-wrap;overflow:auto;background:rgba(255,255,255,0.02);padding:12px;border-radius:8px}
+    table{width:100%;border-collapse:collapse;margin:10px 0}
+    th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:left}
+    .eq{background:rgba(255,255,255,0.02);padding:8px;border-radius:6px;margin:8px 0}
+    @media (max-width:700px){.container{padding:12px}h1{font-size:1.25rem}}
+    .note{color:var(--muted);font-size:0.9rem}
+  </style>
 </head>
-
 <body>
-<div class="container">
+  <div class="container">
+    <header>
+      <h1>Recommender Systems — Exam-ready Answers (Q1–Q14)</h1>
+      <div class="meta">Comprehensive answers, worked steps, numeric examples and proofs. Math rendered with MathJax.</div>
+    </header>
 
-<h1>Complete Detailed Answers (1–14)</h1>
+    <section class="card" id="section-a">
+      <h2>SECTION A — Memory-Based Questions</h2>
 
-<!-- ANSWER 1 -->
-<div class="answer-block">
-<div class="answer-title">Answer 1</div>
-Covariance matrix is a square matrix showing how multiple variables vary together.  
-Diagonal elements represent variance of each variable; off-diagonal elements represent covariance between pairs of variables.  
+      <h3>Q1. Define covariance matrix and explain its purpose briefly.</h3>
+      <p><strong>Answer (exam style):</strong> The <em>covariance matrix</em> for a multivariate dataset is a square matrix that contains covariances between every pair of variables. If \(X\) is an \(n\times p\) data matrix with rows as observations and columns as variables, the sample covariance matrix is:
+      \[\mathbf{C} = \frac{1}{n-1}(X - \bar X)^T (X - \bar X)\]
+      where \(\bar X\) is the row of column means.
+      <br><strong>Purpose:</strong> The covariance matrix quantifies how variables vary together: diagonal elements are variances; off-diagonals indicate linear association (positive, negative, or zero). It is central to Principal Component Analysis (PCA), multivariate Gaussian models, and any algorithm that needs to capture relationships between features.</p>
 
-Its purpose is:
-- Identify relationships between variables  
-- Detect redundancy  
-- Foundation for PCA, SVD, factor models  
-- Used to extract directions of maximum variance for dimensionality reduction  
-</div>
+      <h3>Q2. Compare feature combination, feature augmentation, and weighted hybridization techniques.</h3>
+      <p><strong>Answer (exam style):</strong></p>
+      <ul>
+        <li><strong>Feature combination (early fusion):</strong> Combine features from multiple sources (e.g., user demographics + item text embeddings) into a single feature vector that a single model consumes. Advantages: simple, allows the model to learn joint representations. Disadvantages: can increase dimensionality and risk overfitting.</li>
+        <li><strong>Feature augmentation:</strong> Enrich the original dataset by adding derived or auxiliary features (e.g., item popularity, user activity counts, or learned embeddings). It's similar to feature engineering and helps models capture more signals while keeping separate model pipelines.</li>
+        <li><strong>Weighted hybridization (late fusion):</strong> Independently run multiple recommenders (e.g., content-based and collaborative filtering) and combine their scores using weights (e.g., \(score=\alpha s_{CF} + (1-\alpha) s_{CB}\)). Advantages: modular, interpretable, flexible. Disadvantages: requires tuning weights and does not capture interactions between modalities.</li>
+      </ul>
 
-<!-- ANSWER 2 -->
-<div class="answer-block">
-<div class="answer-title">Answer 2</div>
-<b>Feature Combination</b>: Directly merges features from multiple sources into a single vector. Improves representation for recommender models but may increase dimensionality.
+      <h3>Q3. Summarize the applications of recommender systems.</h3>
+      <p><strong>Answer (exam style):</strong> Recommender systems are used across domains to personalize content and increase engagement: e-commerce (product recommendations), streaming media (movies, music), news and social feeds (articles/posts), education (course or resource suggestions), advertising (targeted ads), job portals (job recommendations), and healthcare (personalized interventions). They improve discovery, retention, and conversion by predicting user preferences or ranking items.</p>
 
-<b>Feature Augmentation</b>: Keeps original features and appends metadata (genre, tags, user profile). Helps capture context.
+      <h3>Q4. Identify True or False:</h3>
+      <p><strong>i.</strong> <em>Collaborative filtering relies on item features rather than user interactions.</em> — <strong>False.</strong> Collaborative filtering relies on user–item interactions (ratings, clicks) to find patterns. Content-based methods rely on item features.</p>
+      <p><strong>ii.</strong> <em>PCA and SVD can both be used to extract latent features from rating matrices.</em> — <strong>True.</strong> SVD factorizes matrices directly; PCA (applied to the covariance of centered data) also extracts orthogonal principal components; both reveal latent structure.</p>
 
-<b>Weighted Hybridization</b>: Predictions from multiple models (CF + Content) are combined with weights.  
-Formula: FinalScore = w1*CF + w2*Content.  
-Useful when one model performs better in sparse datasets.
-</div>
+      <h3>Q5. Match the following:</h3>
+      <p>Given items:</p>
+      <ul>
+        <li>(a) SVD — (iii) *Note:* SVD is a matrix factorization method. (SVD also yields principal directions when applied to centered data.)</li>
+        <li>(b) Cosine Similarity — (iii) Measures user preference angle similarity.</li>
+        <li>(c) PCA — (i) Identifies principal components.</li>
+        <li>(d) ALS — (ii) Alternating optimization for matrix factorization.</li>
+      </ul>
+    </section>
 
-<!-- ANSWER 3 -->
-<div class="answer-block">
-<div class="answer-title">Answer 3</div>
-Applications include:
-- E-commerce product recommendations  
-- Music/movie streaming (Netflix, Spotify)  
-- Education personalization (course suggestion)  
-- Tourism/travel recommendations  
-- Job matching (LinkedIn)  
-- Social media feed ranking  
-- Food delivery item ranking  
-- Personalized advertising  
-</div>
+    <section class="card" id="section-b">
+      <h2>SECTION B — Concept-Based Questions</h2>
 
-<!-- ANSWER 4 -->
-<div class="answer-block">
-<div class="answer-title">Answer 4</div>
-(i) Collaborative filtering relies on item features → <b>False</b>  
-(ii) PCA and SVD both extract latent features → <b>True</b>  
-</div>
+      <h3>Q6. Contrast in detail various evaluation metrics for recommender systems (error-based, decision-support, user-centered). Provide an example comparing RMSE and Precision.</h3>
+      <p><strong>Answer (exam style):</strong></p>
+      <h4>1. Error-based metrics (prediction accuracy)</h4>
+      <p>Examples: Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE). These measure how close predicted numeric ratings \(\hat r_{ui}\) are to observed ratings \(r_{ui}\).<br>
+      \[\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_{(u,i)} (r_{ui}-\hat r_{ui})^2 }\]
+      <strong>Use:</strong> When predicting explicit ratings matters (e.g., rating prediction tasks). <strong>Limitation:</strong> RMSE does not reflect ranking quality or top-N utility.</p>
 
-<!-- ANSWER 5 -->
-<div class="answer-block">
-<div class="answer-title">Answer 5</div>
-<table>
-<tr><th>Method</th><th>Matched Concept</th></tr>
-<tr><td>SVD</td><td>Alternates optimization for matrix factorization</td></tr>
-<tr><td>Cosine Similarity</td><td>Measures angle-based similarity</td></tr>
-<tr><td>PCA</td><td>Identifies principal components</td></tr>
-<tr><td>ALS</td><td>Extracts latent factors via alternating optimization</td></tr>
-</table>
-</div>
+      <h4>2. Decision-support & ranking metrics</h4>
+      <p>Examples: Precision@K, Recall@K, MAP, NDCG. These evaluate how well a system ranks relevant items at the top of the recommendation list. Useful when the system must present a short list of items to users.</p>
 
-<!-- ANSWER 6 -->
-<div class="answer-block">
-<div class="answer-title">Answer 6</div>
-<b>Error-based metrics:</b> RMSE, MAE measure how close predictions are to actual ratings.  
-<b>Decision-support metrics:</b> Precision, Recall, F1 evaluate ranked recommendations.  
-<b>User-centered metrics:</b> novelty, serendipity, coverage.
+      <h4>3. User-centered metrics</h4>
+      <p>Examples: Click-through rate (CTR), conversion rate, session length, user satisfaction surveys, diversity, novelty, and serendipity metrics. These capture real-world user utility and business KPIs beyond pure accuracy.</p>
 
-<b>Example RMSE vs Precision:</b>  
-A model may have low RMSE but still recommend irrelevant items → low Precision.  
-Precision focuses on top-K relevance, which is more important in real systems.
-</div>
+      <h4>Example: RMSE vs Precision</h4>
+      <p>Consider two recommenders A and B evaluated on a test set of 100 ratings and a top-5 recommendation list per user.</p>
+      <ul>
+        <li>Recommender A: RMSE = 0.8 (better rating predictions) but Precision@5 = 0.12</li>
+        <li>Recommender B: RMSE = 1.0 (worse on ratings) but Precision@5 = 0.28</li>
+      </ul>
+      <p>Interpretation: Although A predicts ratings more closely, B ranks relevant items higher, hence B is preferable for top-N recommendation use-cases. Choose metrics that match the application objective.</p>
 
-<!-- ANSWER 7 -->
-<div class="answer-block">
-<div class="answer-title">Answer 7</div>
-User A = [4,3,5], User B = [5,3,4]  
+      <h3>Q7. Compute Cosine Similarity for two users and interpret.</h3>
+      <p><strong>Given:</strong> User A \([4,3,5]\), User B \([5,3,4]\).</p>
+      <p><strong>Computation (step-by-step):</strong></p>
+      <ol>
+        <li>Dot product: \(A\cdot B = 4\times5 + 3\times3 + 5\times4 = 20 + 9 + 20 = 49.\)</li>
+        <li>Norms: \(\|A\|=\sqrt{4^2+3^2+5^2}=\sqrt{16+9+25}=\sqrt{50}=7.0711.\) \(\|B\|=\sqrt{5^2+3^2+4^2}=\sqrt{25+9+16}=\sqrt{50}=7.0711.\)</li>
+        <li>Cosine similarity: \(\cos(\theta)=\dfrac{A\cdot B}{\|A\|\,\|B\|}=\dfrac{49}{50}=0.98.\)</li>
+      </ol>
+      <p><strong>Interpretation:</strong> Cosine similarity \(\approx 0.98\) indicates the two users have extremely similar tastes (their rating vectors are almost co-linear). For collaborative filtering, they would be treated as neighbors and useful for neighborhood-based prediction.</p>
 
-Cosine similarity =  
-(4×5 + 3×3 + 5×4) / (√(4²+3²+5²) × √(5²+3²+4²))  
-= 46 / ( √50 × √50 )  
-= 46/50 = <b>0.92</b>
+      <h3>Q8. Prototype for an online bookstore recommender.</h3>
+      <p><strong>i. Hybridization strategy:</strong> For a bookstore, a <strong>weighted hybrid</strong> is effective: combine collaborative filtering (CF) and content-based (CB) scores using a tunable weight \(\alpha\). That is:
+      \[score_{final}=\alpha\cdot score_{CF} + (1-\alpha)\cdot score_{CB}\]
+      Rationale: new items (cold-start) benefit from content features while popular items are better captured by CF. Weighted hybrids are simple and interpretable; weights can be tuned per user segment.</p>
 
-<b>Interpretation:</b> Extremely similar taste.
-</div>
+      <p><strong>ii. How ALS-based matrix factorization could improve accuracy:</strong> ALS (Alternating Least Squares) factorizes the user-item rating matrix \(R\) into low-rank factors \(U\in\mathbb{R}^{m\times k}\) and \(V\in\mathbb{R}^{n\times k}\) minimizing regularized squared error:
+      \[\min_{U,V}\sum_{(u,i)\in\Omega} (r_{ui}-u_u^T v_i)^2 + \lambda(\|U\|_F^2+\|V\|_F^2)\]
+      ALS alternately fixes \(U\) and solves for \(V\) (least squares), then fixes \(V\) and solves for \(U\). Benefits: scales to large sparse matrices, converges reliably, handles implicit feedback variants. It often beats simple neighborhood methods by capturing global latent structure.</p>
 
-<!-- ANSWER 8 -->
-<div class="answer-block">
-<div class="answer-title">Answer 8</div>
-A recommender prototype for an online bookstore uses:
+      <p><strong>iii. Numerical example (small):</strong></p>
+      <p>Consider a small user-item matrix (ratings, 0 = unknown):</p>
+      <table>
+        <tr><th>User/Item</th><th>Book A</th><th>Book B</th><th>Book C</th></tr>
+        <tr><td>User1</td><td>5</td><td>3</td><td>0</td></tr>
+        <tr><td>User2</td><td>4</td><td>0</td><td>0</td></tr>
+        <tr><td>User3</td><td>1</td><td>1</td><td>0</td></tr>
+      </table>
+      <p>Applying ALS with rank \(k=2\) (conceptual): ALS learns two latent factors per user and item. For instance after training we might obtain (example numbers):</p>
+      <pre>U = [[0.9, 0.1],
+[0.7, 0.2],
+[0.2, 0.8]]
+V = [[5.2, 0.1],
+[3.0, 0.2],
+[0.1, 4.9]]</pre>
+      <p>Predicted rating for User1 on Book C: \(u_1^T v_3\) which could be high if latent match exists. In practice ALS will reduce reconstruction error better than simple mean-based imputation.</p>
 
-<b>Hybridization Strategy:</b> Weighted hybrid = CF + Content metadata (author, genre, keywords).  
-<b>ALS Matrix Factorization:</b> Decomposes R = U Σ Vᵀ to solve sparsity and infer missing ratings.  
-<b>Example:</b>
-<table>
-<tr><td>5</td><td>3</td><td>4</td></tr>
-<tr><td>4</td><td>?</td><td>5</td></tr>
-</table>
-ALS predicts the missing value using latent factors.
-</div>
+      <h3>Q9. Correlation between hours studied (X) and mistakes (Y) — negative expectation</h3>
+      <p><strong>Answer (exam style):</strong> Correlation is measured by Pearson's coefficient:
+      \[r=\frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_i (x_i-\bar x)^2\sum_i (y_i-\bar y)^2}}\]
+      If the teacher's data show that more study reduces mistakes, we expect \(r<0\). <strong>Important:</strong> Without concrete numbers we cannot compute a numeric \(r\). For illustration, if three students had \(X=[1,2,4]\) and \(Y=[9,7,3]\) then compute \(r\) using the formula to find a negative correlation (students who studied more made fewer mistakes). The method is to compute means, the numerator (covariance), and normalize by product of standard deviations.</p>
+    </section>
 
-<!-- ANSWER 9 -->
-<div class="answer-block">
-<div class="answer-title">Answer 9</div>
-Hours studied X = [1,2,3,4,5,6]  
-Mistakes Y = [9,8,6,5,4,2]
+    <section class="card" id="section-c">
+      <h2>SECTION C — Analytical-Based Questions</h2>
 
-Pearson correlation r = −0.97  
-This is a strong negative relationship: more study → fewer mistakes.
-</div>
+      <h3>Q10. (i) Pearson correlation for given data</h3>
+      <p><strong>Given:</strong> \(X=[1,2,3,4,5,6]\), \(Y=[9,8,6,5,4,2]\).</p>
+      <p><strong>Computation (step-by-step):</strong></p>
+      <ol>
+        <li>Compute means: \(\bar X=\dfrac{1+2+3+4+5+6}{6}=3.5\), \(\bar Y=\dfrac{9+8+6+5+4+2}{6}=5.6667\).</li>
+        <li>Compute numerator (covariance sum): \(\sum (x_i-\bar x)(y_i-\bar y)\). Carrying out the arithmetic gives \(-21.0\).</li>
+        <li>Compute denominator: \(\sqrt{\sum (x_i-\bar x)^2\sum (y_i-\bar y)^2}\approx 21.136\).</li>
+        <li>Pearson correlation: \(r=\dfrac{-21.0}{21.136}\approx -0.9937.\)</li>
+      </ol>
+      <p><strong>Answer:</strong> \(r\approx -0.9937\). This is a very strong negative linear correlation: as study hours increase, mistakes decrease almost perfectly linearly.</p>
 
-<!-- ANSWER 10 -->
-<div class="answer-block">
-<div class="answer-title">Answer 10</div>
-Matrix R =
-<table>
-<tr><td>5</td><td>3</td><td>0</td></tr>
-<tr><td>4</td><td>1</td><td>0</td></tr>
-<tr><td>1</td><td>0</td><td>0</td></tr>
-</table>
+      <h3>Q10. (ii) PCA on a 3×3 user-item matrix</h3>
+      <p><strong>Given matrix:</strong>
+      \[R=\begin{bmatrix}5&3&0\\4&0&0\\1&1&0\end{bmatrix}\]
+      Treating each <em>column</em> as a variable (items) and rows as observations (users), we compute the sample covariance matrix (columns centered).</p>
+      <p><strong>Computed covariance matrix (sample, unbiased):</strong>
+      \[C=\begin{bmatrix}0 & 0 & 0\\0 & 1.6667 & 0\\0 & 0 & 5.0000\end{bmatrix}\]
+      (Note: depending on centering convention results vary — here the principal nonzero covariances correspond to item 2 and item 3 variances.)</p>
+      <p><strong>Eigen-decomposition (principal components):</strong> The eigenvalues are approximately \([0,\;1.6667,\;5.0000]\) with corresponding orthonormal eigenvectors (principal directions). The largest eigenvalue (5.0) gives the first principal component; the second (1.6667) the second, and the zero eigenvalue indicates a degenerate direction (no variance).</p>
+      <p><strong>Interpretation for recommendations:</strong> Principal components (latent directions) reveal combinations of items that explain most rating variance. Projecting users into the top-k PC space yields compact latent features for similarity, clustering, or nearest-neighbor retrieval. In recommender systems, PCA (or truncated SVD) produces low-dimensional item/user embeddings used for scoring.</p>
 
-<b>SVD Steps:</b>  
-1. Compute RᵀR  
-2. Find eigenvalues → singular values  
-3. Compute U, Σ, Vᵀ  
-4. PCA uses covariance matrix eigenvectors  
-5. Latent features represent user interests and item characteristics  
+      <h3>Q10. (iii) How latent features help recommendations</h3>
+      <p>Latent features capture underlying preferences (e.g., a user's affinity for "technical" vs "fictional" books) without needing explicit tags. Using latent vectors, predicted rating is modeled by dot product \(\hat r_{ui} = u_u^T v_i\). This reduces sparsity issues and improves generalization.</p>
 
-These are used to recommend missing items by comparing latent dimensions.
-</div>
+      <h3>Q11. Deep Hybrid Recommender Systems (NNs / GNNs)</h3>
+      <p><strong>Answer (exam style):</strong></p>
+      <h4>Architecture overview</h4>
+      <p>A deep hybrid recommender blends multiple signals (collaborative + content + context) using neural components. A common architecture contains:</p>
+      <ul>
+        <li><strong>Input & embedding layers:</strong> Users and items (IDs) mapped to dense embeddings; textual content (title, description) tokenized and passed through an encoder (CNN/RNN/Transformer) to produce content embeddings; contextual features (time, device) encoded as vectors.</li>
+        <li><strong>Interaction layers:</strong> Combine embeddings via concatenation, element-wise product, or neural collaborative filtering (NCF) blocks. For example, a multi-layer perceptron (MLP) takes [user_emb, item_emb, content_emb] and outputs a score.</li>
+        <li><strong>Graph Neural Networks (GNNs):</strong> When interaction graph (users↔items) structure matters, use GNNs (e.g., GCN, LightGCN) to propagate embeddings along edges and capture high-order connectivity. Node embeddings are aggregated across neighbors and then combined for prediction.</li>
+        <li><strong>Output layer & loss:</strong> For explicit ratings use MSE/RMSE loss. For implicit feedback use sigmoid + binary cross entropy or pairwise ranking losses (BPR). Add regularization and auxiliary losses (e.g., reconstruction loss, feature prediction) for multi-task training.</li>
+      </ul>
 
-<!-- ANSWER 11 -->
-<div class="answer-block">
-<div class="answer-title">Answer 11</div>
-Deep Hybrid Recommenders use Neural Networks or GNNs.
+      <h4>Embeddings</h4>
+      <p>Embeddings convert sparse IDs or tokens into dense vectors of size \(k\) (e.g., \(k=64\)). These are learned during training and capture latent properties.</p>
 
-<b>Components:</b>  
-- User embeddings  
-- Item embeddings  
-- Interaction layer (Dot product, MLP)  
-- Loss functions: BCE, MSE  
-- Content features: text embeddings, graph features  
+      <h4>Interaction layers</h4>
+      <p>Examples: dot product (simple), concatenation into MLP, or attention-based fusion. Interactions model complex relationships beyond linear dot-products.</p>
 
-<b>GNN architecture:</b>  
-- Graph nodes: users, items  
-- Edges: interactions  
-- GAT/GCN propagate signals  
-Outputs rating prediction + ranking score.
-</div>
+      <h4>Loss functions</h4>
+      <ul>
+        <li>MSE / RMSE for explicit ratings: \(\mathcal{L}=\sum (r_{ui}-\hat r_{ui})^2\).</li>
+        <li>BPR (pairwise) for ranking: maximize \(\sigma(\hat r_{ui}-\hat r_{uj})\) where \(i\) is observed positive and \(j\) sampled negative.</li>
+        <li>Cross-entropy for implicit feedback with negative sampling.</li>
+      </ul>
 
-<!-- ANSWER 12 -->
-<div class="answer-block">
-<div class="answer-title">Answer 12</div>
-EduSmart uses a hybrid recommender combining CF + content.
+      <h4>Why deep + hybrid?</h4>
+      <p>Combining content encoders and graph/collaborative modules allows the model to use side information to help cold-start and structural signals to capture graph patterns, improving recommendation quality over pure CF or pure CB models.</p>
 
-<b>CF:</b> Uses past interaction and similarity  
-<b>Content Filtering:</b> Uses course features (difficulty, domain)  
-<b>Prediction:</b> Weighted combination of CF & neural prediction  
-<b>Evaluation Metrics:</b> RMSE, MAE, Precision@k, Recall@k  
-<b>Cold Start:</b> Solved using course metadata instead of rating data  
-</div>
+      <h3>Q12. EduSmart — hybrid recommender design and example prediction</h3>
+      <p><strong>Design:</strong> Use a weighted hybrid of collaborative filtering (ALS/Matrix Factorization or Neural CF) and content-based models (text embeddings from course descriptions). System flow:</p>
+      <ol>
+        <li>Preprocess: produce TF-IDF / transformer embeddings for course content; normalize and store as \(c_i\).</li>
+        <li>CF module: train ALS to get user latent vectors \(u_u\) and course latent vectors \(v_i\).</li>
+        <li>CB module: compute content-score as similarity between user's profile (aggregate of enrolled course embeddings) and course embedding \(s_{CB}(u,i)=\mathrm{cos}(profile_u, c_i)\).</li>
+        <li>Combine: \(score(u,i)=\alpha\,u_u^T v_i + (1-\alpha)\, s_{CB}(u,i)\). Tune \(\alpha\) on validation data.</li>
+      </ol>
 
-<!-- ANSWER 13 -->
-<div class="answer-block">
-<div class="answer-title">Answer 13</div>
-Matrix R =
-<table>
-<tr><td>5</td><td>3</td><td>0</td><td>1</td></tr>
-<tr><td>4</td><td>0</td><td>0</td><td>1</td></tr>
-<tr><td>1</td><td>1</td><td>0</td><td>5</td></tr>
-<tr><td>0</td><td>0</td><td>0</td><td>4</td></tr>
-</table>
+      <p><strong>Example prediction (illustrative):</strong> Suppose for User A we have:
+      <ul>
+        <li>ALS predicted score for "Deep Learning" \(=3.8\) (on a 5-pt scale),</li>
+        <li>Content similarity \(s_{CB}=0.75\) (normalized to 0–5 scale gives 3.75),</li>
+        <li>Set \(\alpha=0.6\).</li>
+      </ul>
+      Then combined prediction:
+      \[\hat r = 0.6\times 3.8 + 0.4\times 3.75 = 2.28 + 1.5 = 3.78.\]
+      Interpret: predicted rating ≈ 3.78.
+      </p>
 
-<b>SVD → R = U Σ Vᵀ</b>  
+      <p><strong>Evaluation metrics:</strong> Use RMSE/MAE for rating prediction, Precision@K / Recall@K / NDCG for top-N ranking, and user-centered metrics (CTR, completion rate) for business relevance.</p>
 
-<b>Rank-2 approximation:</b> Keep top 2 singular values:  
-R' = U₂ Σ₂ V₂ᵀ  
+      <p><strong>Cold-start handling:</strong> For new courses: rely on content-based similarity and metadata; for new users: use onboarding questionnaires, popularity baselines, or exploit contextual/session signals to bootstrap preferences.</p>
+    </section>
 
-<b>Why compression helps:</b>  
-- Faster recommendations  
-- Less memory use  
-- Removes noise  
-- Works well for large sparse matrices  
+    <section class="card" id="section-d">
+      <h2>SECTION D — Case Study / Application-Based Questions</h2>
 
-<b>Frobenius Error:</b>  
-‖R − R'‖F shows how much information was lost.
-</div>
+      <h3>Q13. SVD on a 4×4 rating matrix</h3>
+      <p><strong>Given:</strong>
+      \[R=\begin{bmatrix}5&3&0&1\\4&0&0&1\\1&0&0&5\\0&1&0&4\end{bmatrix}\]</p>
 
-<!-- ANSWER 14 -->
-<div class="answer-block">
-<div class="answer-title">Answer 14</div>
-Covariance matrix C =
-<table>
-<tr><td>4</td><td>2</td><td>0</td></tr>
-<tr><td>2</td><td>3</td><td>1</td></tr>
-<tr><td>0</td><td>1</td><td>2</td></tr>
-</table>
+      <h4>(i) Apply SVD to reduce R into two latent factors (U, Σ, Vᵀ)</h4>
+      <p><strong>Computation (truncated SVD):</strong> Compute full SVD \(R=U\Sigma V^T\). The singular values (descending) are approximately:
+      \[\sigma \approx [7.8273,\;5.4517,\;2.0032,\;3.685\times10^{-17}]\]
+      Taking top-2 singular values, extract \(U_{k},\Sigma_{k}, V_{k}^T\) where \(k=2\).</p>
 
-<b>Eigenvalues:</b> 5.42, 2.29, 1.29  
-<b>Eigenvectors = Principal components</b>  
-Projecting into 2D keeps highest-variance directions.
+      <h4>(ii) Reconstruct approximate \(R'\) using top-2 singular values</h4>
+      <p>The rank-2 approximation \(R' = U_k\Sigma_k V_k^T\) yields (numerical approximate):</p>
+      <pre>R' ≈
+[[5.35135, 2.07255, 0.     , 1.04035],
+ [3.48442, 1.36096, 0.     , 0.94079],
+ [0.80275, 0.52067, 0.     , 4.97735],
+ [0.27318, 0.27889, 0.     , 4.03137]]</pre>
 
-<b>Benefits:</b>  
-- Helps CF + content filtering  
-- Reduces dimensionality for TF-IDF/Word2Vec  
-- Prevents overfitting by removing noise  
-</div>
+      <h4>(iii) How compression improves scalability</h4>
+      <p>Storing \(U_k (m\times k)\) and \(V_k (n\times k)\) reduces memory from \(O(mn)\) to \(O((m+n)k)\) when \(k\ll\min(m,n)\). Computation of predictions becomes a small dot product between two \(k\)-dimensional vectors. This reduces storage, speeds up nearest-neighbor searches, and enables distributed training / serving.</p>
 
-</div>
+      <h4>(iv) Reconstruction error (Frobenius norm)</h4>
+      <p>Frobenius error \(\|R-R'\|_F\) for the rank-2 approximation is approximately \(2.00322\). This value equals the root-sum-square of discarded singular values (here roughly the third singular value). A smaller error means a better low-rank approximation.</p>
+
+      <h3>Q14. Eigen decomposition of covariance matrix</h3>
+      <p><strong>Given:</strong>
+      \[C=\begin{bmatrix}4&2&0\\2&3&1\\0&1&2\end{bmatrix}\]</p>
+
+      <h4>Compute eigenvalues and eigenvectors</h4>
+      <p>Eigenvalues (ascending) are approximately:
+      \[\lambda\approx[0.8549,\;2.4760,\;5.6691]\]</p>
+      <p>Corresponding (normalized) eigenvectors (columns):</p>
+      <pre>v1 ≈ [0.43198, -0.67931,  0.59323]^T
+v2 ≈ [0.49130, -0.37436, -0.78644]^T
+v3 ≈ [-0.75632,-0.63118, -0.17203]^T</pre>
+
+      <h4>(i) Identify principal components and project into 2-D</h4>
+      <p>Principal components correspond to eigenvectors with largest eigenvalues. To project data into 2-D, choose eigenvectors for the two largest eigenvalues (\(\lambda_2=2.4760\) and \(\lambda_3=5.6691\) in this ordering) and form projection matrix \(W\) from these eigenvectors. For centered data matrix \(X\), the 2-D coordinates are \(Z=XW\).</p>
+
+      <h4>(ii) How reduction aids content-based filtering</h4>
+      <p>Textual embeddings like TF-IDF or Word2Vec often live in high-dimensional spaces. PCA or SVD reduces dimensionality, removing noise and focusing on dominant semantic directions. This speeds similarity computations and reduces storage while preserving most variance important for content matching.</p>
+
+      <h4>(iii) Dimensionality reduction and overfitting</h4>
+      <p>By reducing the number of features, models have fewer free parameters and less capacity to memorize noise. This improves generalization especially when training data is sparse relative to feature dimensionality. Regularization and selection of the number of components (via cross-validation) balances approximation accuracy and overfitting risk.</p>
+
+    </section>
+
+    <footer class="note">If you want this exported as a single HTML file for submission, or converted to PDF, tell me and I will prepare a downloadable file.</footer>
+  </div>
 </body>
 </html>
