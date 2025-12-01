@@ -1,276 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Exam Answers — Artificial Intelligence in Healthcare</title>
-  <style>
-    :root{
-      --bg:#f6f8fb;
-      --card:#fff;
-      --accent:#203a63;
-      --muted:#55677a;
-      --pad:18px;
-      --maxw:900px;
-      --hr:rgba(0,0,0,0.06);
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      font-family: "Georgia", "Times New Roman", serif;
-      background:var(--bg);
-      color:#111;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:30px 16px;
-      display:flex;
-      justify-content:center;
-    }
-    .sheet{
-      width:100%;
-      max-width:var(--maxw);
-      background:var(--card);
-      border-radius:10px;
-      box-shadow:0 8px 30px rgba(32,58,99,0.08);
-      padding:26px;
-      box-sizing:border-box;
-    }
-    header{
-      text-align:center;
-      margin-bottom:14px;
-    }
-    header h1{
-      margin:0;
-      color:var(--accent);
-      font-size:20px;
-    }
-    header p{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .meta{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin:14px 0 20px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .meta .left{font-size:13px;color:var(--muted)}
-    .meta .right{font-size:13px;color:var(--muted)}
-    section{margin-bottom:18px;}
-    section h2{
-      margin:0 0 10px;
-      padding-bottom:8px;
-      border-bottom:1px solid var(--hr);
-      color:var(--accent);
-      font-size:16px;
-    }
-    .qa{
-      counter-reset:q;
-      margin-top:12px;
-    }
-    .q{
-      padding:12px;
-      border-left:4px solid transparent;
-      margin-bottom:10px;
-    }
-    .q strong.qno{
-      display:inline-block;
-      width:82px;
-      color:var(--accent);
-      font-weight:700;
-    }
-    .q p, .q li{
-      margin:6px 0;
-      color:#0d1720;
-      font-size:14px;
-    }
-    .match, .list{margin-left:86px;}
-    ol, ul{margin:6px 0 6px 20px;}
-    .small{font-size:13px;color:var(--muted)}
-    footer{
-      margin-top:18px;
-      padding-top:10px;
-      border-top:1px solid var(--hr);
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI in Healthcare – Exam Answers</title>
 
-    /* responsive */
-    @media (max-width:640px){
-      .sheet{padding:18px}
-      .meta{flex-direction:column;align-items:flex-start}
-      .q strong.qno{width:74px}
-      header h1{font-size:18px}
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background: #f4f6f9;
+        padding: 20px;
     }
-    /* print friendly */
-    @media print{
-      body{padding:0}
-      .sheet{box-shadow:none;border-radius:0;padding:12px}
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
-  </style>
+    h1,h2,h3 {
+        color: #1a237e;
+    }
+    .question {
+        margin-bottom: 30px;
+        padding: 15px;
+        border-left: 5px solid #1a237e;
+        background: #fdfdfd;
+        border-radius: 6px;
+    }
+    .qno {
+        font-weight: bold;
+        color: #0d47a1;
+        font-size: 18px;
+    }
+    @media (max-width: 600px) {
+        body { padding: 10px; }
+        .container { padding: 15px; }
+    }
+</style>
 </head>
+
 <body>
-  <article class="sheet" role="main">
-    <header>
-      <h1>Artificial Intelligence in Healthcare — Exam Answers</h1>
-      <p class="small">Answer sheet — write-up formatted for submission</p>
-    </header>
+<div class="container">
 
-    <div class="meta">
-      <div class="left small">Name: ____________________ &nbsp;&nbsp; Enrolment No: ____________________</div>
-      <div class="right small">Course: AI in Healthcare &nbsp;&nbsp; Time: 03 hrs</div>
-    </div>
+<h1>Artificial Intelligence in Healthcare – Full Exam Answers</h1>
+<h2>Fully Responsive HTML – Exam-Ready Explanations</h2>
 
-    <!-- SECTION A -->
-    <section>
-      <h2>SECTION A — Memory Based Questions (Short)</h2>
-      <div class="qa">
+<!-- SECTION A -->
+<h2>SECTION A – Memory Based Questions (2 marks each)</h2>
 
-        <div class="q">
-          <strong class="qno">Q1.</strong>
-          <p><b>Define deep learning and its relation to neural networks.</b></p>
-          <p>Deep learning is a subfield of machine learning that uses multi-layered artificial neural networks to automatically learn hierarchical feature representations from data. It is implemented via deep neural networks—neural networks with many hidden layers—enabling learning of complex, non-linear patterns without manual feature engineering.</p>
-        </div>
+<div class="question">
+<p class="qno">Q1. Define deep learning and its relation to neural networks.</p>
+<p>Deep learning is a subset of machine learning that uses multi-layered artificial neural networks to automatically learn hierarchical feature representations from data. It mimics the structure of the human brain by organizing neurons in layers (input, hidden, output). Neural networks are the backbone of deep learning, and when these networks are deep (many layers), they enable extraction of complex patterns in images, audio, and text.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q2.</strong>
-          <p><b>What is the purpose of data preprocessing in healthcare AI applications?</b></p>
-          <p>To clean, normalize and structure raw medical data so models can learn reliably. Preprocessing removes noise, handles missing values, standardizes formats, encodes categorical fields, and ensures inputs meet privacy and clinical safety requirements.</p>
-        </div>
+<div class="question">
+<p class="qno">Q2. What is the purpose of data preprocessing in healthcare AI applications?</p>
+<p>Data preprocessing ensures that medical data is clean, consistent, and usable by AI models. It includes noise removal, missing value handling, normalization, anonymization, and harmonizing formats. This improves model performance, reliability, and safety in clinical decision-making.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q3.</strong>
-          <p><b>State one limitation of black-box AI models in clinical settings.</b></p>
-          <p>Lack of interpretability: black-box models do not provide transparent reasoning for predictions, reducing clinician trust and complicating accountability for clinical decisions.</p>
-        </div>
+<div class="question">
+<p class="qno">Q3. State one limitation of black-box AI models in clinical settings.</p>
+<p>Black-box models lack interpretability, meaning clinicians cannot easily understand how predictions are made. This reduces trust and makes it difficult to verify correctness in critical healthcare scenarios.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q4.</strong>
-          <p><b>True or False</b></p>
-          <div class="list">
-            <p>1. SHAP and LIME are model training techniques. — <b>False</b></p>
-            <p>2. Deep learning models are always interpretable due to their high accuracy. — <b>False</b></p>
-          </div>
-        </div>
+<div class="question">
+<p class="qno">Q4. True or False</p>
+<p>a) SHAP and LIME are model training techniques – <b>False</b></p>
+<p>b) Deep learning models are always interpretable due to high accuracy – <b>False</b></p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Match</strong>
-          <p class="small">Match the following:</p>
-          <div class="match">
-            <p>(a) NLP → (i) Text analysis</p>
-            <p>(b) CNN → (ii) Medical image interpretation</p>
-            <p>(c) Predictive analytics → (iv) Forecasting patient readmission</p>
-            <p>(d) Wearable Sensors → (iii) Real-time patient monitoring</p>
-          </div>
-        </div>
+<div class="question">
+<p class="qno">Q5. Match the following:</p>
+<p>(a) NLP → (i) Text analysis</p>
+<p>(b) CNN → (ii) Medical image interpretation</p>
+<p>(c) Predictive analytics → (iv) Forecasting patient readmission</p>
+<p>(d) Wearable sensors → (iii) Real-time patient monitoring</p>
+</div>
 
-      </div>
-    </section>
+<!-- SECTION B -->
+<h2>SECTION B – Concept Based Questions (4–6 marks)</h2>
 
-    <!-- SECTION B -->
-    <section>
-      <h2>SECTION B — Concept Based Questions</h2>
-      <div class="qa">
+<div class="question">
+<p class="qno">Q6. Discuss the role of interpretability in building trustworthy AI systems.</p>
+<p>Interpretability ensures that clinicians can understand how AI models derive predictions. It helps verify correctness, detect bias, support clinical reasoning, and improve accountability. Transparent models increase trust, regulatory compliance, and adoption in real-world healthcare workflows.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q6.</strong>
-          <p><b>Discuss the role of interpretability in building trustworthy AI systems.</b></p>
-          <p>Interpretability enables clinicians and stakeholders to understand model reasoning, verify correctness, detect biases, and make informed decisions. It supports clinical adoption, accountability, regulatory compliance, and error analysis. Approaches include inherently interpretable models and post-hoc methods (SHAP, LIME, Grad-CAM) combined with human oversight.</p>
-        </div>
+<div class="question">
+<p class="qno">Q7. Describe challenges of implementing NLP in multilingual healthcare datasets.</p>
+<p>Challenges include limited annotated datasets across languages, variations in medical terminology, transliteration complexity, code-mixing in clinical notes, ambiguity, and inconsistent grammar structures. Domain-specific abbreviations further complicate entity recognition and text classification tasks.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q7.</strong>
-          <p><b>Describe the challenges of implementing NLP in multilingual healthcare datasets.</b></p>
-          <p>Challenges include language diversity and code-switching, inconsistent medical terminology, scarce annotated corpora for low-resource languages, ambiguous abbreviations, transliteration issues, and lack of standardized clinical lexicons. These problems demand specialized tokenization, cross-lingual transfer, domain adaptation, and clinician-guided annotation.</p>
-        </div>
+<div class="question">
+<p class="qno">Q8. Explain how wearable IoT devices generate data for predictive analytics.</p>
+<p>Wearable devices collect continuous physiological signals such as heart rate, blood oxygen, gait, and sleep patterns. This real-time data is transmitted to cloud systems, where AI models analyze trends to predict conditions such as arrhythmia, hypertension, or early signs of chronic disease.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q8.</strong>
-          <p><b>Explain how wearable IoT devices generate data for predictive analytics.</b></p>
-          <p>Wearables collect continuous physiological and motion sensor data (heart rate, SpO₂, accelerometer). Data are preprocessed on-device, transmitted to cloud gateways, stored in time-series stores, and processed into features (HRV, step counts, sleep stages). Streaming pipelines and feature windows feed predictive models to detect anomalies and forecast health events.</p>
-        </div>
+<div class="question">
+<p class="qno">Q9. How does AI assist clinical decision-making? Provide an example.</p>
+<p>AI supports decision-making by analyzing large medical datasets, identifying patterns, and providing evidence-based recommendations. For example, AI-enabled radiology systems highlight potential tumors in CT scans, helping doctors make quicker and more accurate diagnoses.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q9.</strong>
-          <p><b>How does AI assist in clinical decision-making? Provide an example.</b></p>
-          <p>AI supports diagnosis, prognosis, and treatment recommendations by analyzing complex data. Example: an AI radiology tool detects lung nodules in CT scans and flags high-risk cases for radiologist review, accelerating diagnosis and reducing oversight errors.</p>
-        </div>
+<div class="question">
+<p class="qno">Q10. A linear regression model predicts systolic blood pressure (Y) using BMI (X): Y = 90 + 1.5X</p>
 
-        <div class="q">
-          <strong class="qno">Q10.</strong>
-          <p><b>Given Y = 90 + 1.5X (X = BMI)</b></p>
-          <ol>
-            <li><b>(a)</b> If BMI = 28, predicted BP = 90 + 1.5×28 = 132 mmHg.</li>
-            <li><b>(b)</b> If actual BP = 135 mmHg, residual = 135 − 132 = 3 mmHg.</li>
-            <li><b>(c)</b> Adding Age as a second feature captures clinically relevant variance; it reduces unexplained error and improves personalized predictions.</li>
-          </ol>
-        </div>
+<p><b>(a) If BMI=28, calculate predicted BP.</b><br>
+Predicted BP = 90 + 1.5(28) = 132 mmHg.</p>
 
-      </div>
-    </section>
+<p><b>(b) If actual BP=135 mmHg, compute residual error.</b><br>
+Residual = Actual – Predicted = 135 – 132 = 3 mmHg.</p>
 
-    <!-- SECTION C -->
-    <section>
-      <h2>SECTION C — Analytical Based Questions</h2>
-      <div class="qa">
+<p><b>(c) Suggest how adding “Age” as a second feature improves the model.</b><br>
+Age strongly influences blood pressure. Adding it captures variation that BMI alone cannot explain, improving accuracy by reducing unexplained variance and making the regression more clinically realistic.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q11.</strong>
-          <p><b>Deep Learning–based Cancer Diagnostics and Bias Mitigation</b></p>
-          <p>Use a ResNet/FPN style CNN with input normalization and augmentation, residual bottleneck blocks, atrous convolutions for larger receptive fields, attention modules (SE/CBAM), and a classification head. Include domain-adaptive batch normalization and auxiliary segmentation/localization outputs for multi-task learning. To mitigate bias from demographic imbalance and scanner variation: curate balanced datasets, apply augmentation (including synthetic underrepresented samples), use domain adaptation, validate per-group metrics, and incorporate fairness-aware losses. Deploy explainability (Grad-CAM) and stratified evaluation; ensure clinician oversight and continuous monitoring.</p>
-        </div>
+<!-- SECTION C -->
+<h2>SECTION C – Analytical Questions (8–10 marks)</h2>
 
-        <div class="q">
-          <strong class="qno">Q12.</strong>
-          <p><b>Case Study — NLP in Pathology Reports</b></p>
-          <ol>
-            <li>Stages: data collection & de-identification → preprocessing (tokenization, normalization, abbreviation expansion) → domain embeddings → NER/entity linking → relation extraction → classification → evaluation.</li>
-            <li>Challenges: ambiguous abbreviations, institution-specific shorthand, terminology variation, scarce annotated clinical corpora, normalization to ontologies.</li>
-            <li>BERT-based models: provide contextualized embeddings, handle polysemy, fine-tune effectively on limited labeled clinical data and outperform rigid rule-based systems.</li>
-            <li>Ethical implications: misinterpretation can cause incorrect diagnoses, patient harm, privacy breaches and legal liability; thus validation and human review are essential.</li>
-          </ol>
-        </div>
+<div class="question">
+<p class="qno">Q11. Deep Learning–based Cancer Diagnostics and Bias Mitigation</p>
 
-      </div>
-    </section>
+<p><b>(a) Advanced CNN Architecture</b><br>
+A suitable architecture is <b>ResNet</b>, which uses residual blocks to avoid vanishing gradients and learn deeper features. The data flows as:  
+Convolution → Batch Normalization → ReLU → Residual Skip Connection → Pooling → Fully Connected Classification Layer.  
+This structure enables detection of subtle lung or skin cancer features such as irregular lesion borders, density variations, and microcalcifications.</p>
 
-    <!-- SECTION D -->
-    <section>
-      <h2>SECTION D — Case Study / Application Based Questions</h2>
-      <div class="qa">
+<p><b>(b) Dataset Bias Effects</b><br>
+If 80% images come from lighter-skinned patients and 20% from darker skin tones, the CNN may misclassify lesions in darker-skinned patients due to underrepresentation. This leads to unequal false negatives, delayed diagnosis, and serious clinical harm.</p>
+</div>
 
-        <div class="q">
-          <strong class="qno">Q13.</strong>
-          <p><b>Predictive Hospital Analytics using AI & Big Data</b></p>
-          <ol>
-            <li>Pipeline: ingest EHR, admission logs, IoT, scheduling and external data → cleaning & timestamp alignment → feature engineering (lags, rolling stats, occupancy rates) → model selection (LSTM/GRU for sequence modeling; Random Forest/XGBoost for engineered features) → validation (time series cross-validation) → deployment (streaming inference).</li>
-            <li>Hybrid architecture: Kafka for streaming ingestion → Spark/Flink for windowed feature computation → model serving (TF Serving or microservices) → dashboard and alerting; raw/feature data persisted in data lake for retraining.</li>
-            <li>Handling data issues: impute missing values, include missingness indicators, filter noisy sensors, use resampling or cost-sensitive learning for imbalance.</li>
-            <li>Fairness: audit subgroup performance, apply reweighting or fairness constraints, monitor and retrain when disparities appear.</li>
-          </ol>
-        </div>
+<!-- SECTION D -->
+<h2>SECTION D – Case Study / Application Questions (10 marks each)</h2>
 
-        <div class="q">
-          <strong class="qno">Q14.</strong>
-          <p><b>Fair and Interpretable AI Framework for Healthcare</b></p>
-          <ol>
-            <li>Preprocessing & bias detection: normalize, map terminologies, compute groupwise statistics, and rebalance data where needed.</li>
-            <li>Model & explainability: prefer interpretable models where feasible; otherwise pair black-box models with SHAP/LIME or Grad-CAM for explanations and provide global and local explanations to clinicians.</li>
-            <li>Fairness evaluation: measure Demographic Parity, Equal Opportunity, and False Positive Rate Parity; set acceptable thresholds and mitigate via reweighting, threshold adjustments, or adversarial debiasing.</li>
-            <li>Operationalize with continuous monitoring, clinician review, and governance for safety and equity.</li>
-          </ol>
-        </div>
+<div class="question">
+<p class="qno">Q13. Predictive Hospital Analytics using AI & Big Data (Expanded Answer)</p>
 
-      </div>
-    </section>
+<p><b>1. Predictive Modeling Pipeline</b><br>
+A hospital must integrate multiple data sources such as EHRs, admission logs, lab values, demographic data, and seasonal trends. Preprocessing includes duplicate removal, standardizing formats, feature scaling, missing value imputation, and converting categorical attributes using one-hot encoding.  
+Feature engineering involves creating variables such as patient arrival patterns, disease prevalence, and historical admission rates.  
+Model selection may include LSTM (for temporal patterns), GRU (efficient sequence learning), Prophet (trend-based forecasting), or Random Forest (nonlinear tabular predictions).</p>
 
-    <footer>
-      <div class="small">End of answer sheet — Please write your roll number and sign below if required.</div>
-    </footer>
-  </article>
+<p><b>2. Hybrid Architecture with Real-Time Ingestion</b><br>
+Batch data (historical records) is combined with real-time streaming from Kafka/Spark Streaming. Kafka ingests live admission events while Spark processes them in micro-batches. The hybrid architecture ensures continuous updating of predictions for departments like ICU, Pediatrics, and Cardiology. The forecasting model receives a steady flow of both historical and real-time data.</p>
+
+<p><b>3. Handling Data Imbalance, Missing Values & Sensor Noise</b><br>
+Imbalance is addressed using SMOTE or class-weight adjustments. Missing values are treated using KNN imputation or clinical-rule-based filling. Sensor noise from devices (e.g., heart-rate monitors) is mitigated using smoothing filters and outlier rejection. This ensures stability and clinical validity of predictions.</p>
+
+<p><b>4. Ensuring Fairness & Avoiding Group Bias</b><br>
+Fairness involves ensuring predictions do not disadvantage elderly, rural, or previously high-risk groups. Methods include demographic parity testing, subgroup accuracy comparison, and bias-corrective reweighting. The model is regularly audited for fairness before deployment, ensuring ethical and unbiased patient care.</p>
+</div>
+
+<div class="question">
+<p class="qno">Q14. Fair and Interpretable AI in Healthcare (Expanded Answer)</p>
+
+<p><b>1. Data Preprocessing & Bias Detection</b><br>
+The first step is to clean EHR and imaging data, harmonize formats, and anonymize patient attributes. Bias detection includes analyzing label distribution across gender and rural/urban groups, identifying skewed samples, and computing metrics such as disparate impact ratio. Outliers are removed using domain rules to maintain medical relevance.</p>
+
+<p><b>2. Model Selection with Explainability</b><br>
+An interpretable model such as Decision Tree, GAM, or Explainable Boosting Machine can be selected for transparency.  
+If a black-box model (CNN/XGBoost) is necessary for accuracy, explainability tools like SHAP, LIME, and Grad-CAM are applied.  
+SHAP quantifies feature contribution for individual predictions, LIME generates local surrogate explanations, and Grad-CAM highlights regions in CT/MRI images responsible for classification. This makes AI outputs clinically understandable.</p>
+
+<p><b>3. Fairness Evaluation with Proper Metrics</b><br>
+Demographic Parity checks whether prediction rates are equal across groups.  
+Equal Opportunity ensures equal true positive rates across demographics.  
+False Positive Rate Parity ensures misclassification risk is shared fairly across patient groups.  
+The system undergoes continuous fairness monitoring and rebalancing of training data to minimize predictive disparities, resulting in an equitable and trustworthy AI pipeline.</p>
+</div>
+
+</div>
 </body>
 </html>
