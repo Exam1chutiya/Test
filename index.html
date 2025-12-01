@@ -1,264 +1,276 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Recommender Systems — Exam-ready Answers (Q1–Q14)</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exam Answers — Artificial Intelligence in Healthcare</title>
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#60a5fa;--paper:#0b1220}
-    body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#071027 0%, #081426 100%);color:#e6eef8;line-height:1.5}
-    .container{max-width:1000px;margin:24px auto;padding:20px}
-    header{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
-    h1{font-size:1.6rem;margin:0;color:var(--accent)}
-    .meta{color:var(--muted);font-size:0.9rem}
-    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:16px}
-    h2{margin-top:0;color:#cfe8ff}
-    pre{white-space:pre-wrap;overflow:auto;background:rgba(255,255,255,0.02);padding:12px;border-radius:8px}
-    table{width:100%;border-collapse:collapse;margin:10px 0}
-    th,td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04);text-align:left}
-    .eq{background:rgba(255,255,255,0.02);padding:8px;border-radius:6px;margin:8px 0}
-    @media (max-width:700px){.container{padding:12px}h1{font-size:1.25rem}}
-    .note{color:var(--muted);font-size:0.9rem}
+    :root{
+      --bg:#f6f8fb;
+      --card:#fff;
+      --accent:#203a63;
+      --muted:#55677a;
+      --pad:18px;
+      --maxw:900px;
+      --hr:rgba(0,0,0,0.06);
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:30px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .sheet{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:10px;
+      box-shadow:0 8px 30px rgba(32,58,99,0.08);
+      padding:26px;
+      box-sizing:border-box;
+    }
+    header{
+      text-align:center;
+      margin-bottom:14px;
+    }
+    header h1{
+      margin:0;
+      color:var(--accent);
+      font-size:20px;
+    }
+    header p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .meta{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin:14px 0 20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .meta .left{font-size:13px;color:var(--muted)}
+    .meta .right{font-size:13px;color:var(--muted)}
+    section{margin-bottom:18px;}
+    section h2{
+      margin:0 0 10px;
+      padding-bottom:8px;
+      border-bottom:1px solid var(--hr);
+      color:var(--accent);
+      font-size:16px;
+    }
+    .qa{
+      counter-reset:q;
+      margin-top:12px;
+    }
+    .q{
+      padding:12px;
+      border-left:4px solid transparent;
+      margin-bottom:10px;
+    }
+    .q strong.qno{
+      display:inline-block;
+      width:82px;
+      color:var(--accent);
+      font-weight:700;
+    }
+    .q p, .q li{
+      margin:6px 0;
+      color:#0d1720;
+      font-size:14px;
+    }
+    .match, .list{margin-left:86px;}
+    ol, ul{margin:6px 0 6px 20px;}
+    .small{font-size:13px;color:var(--muted)}
+    footer{
+      margin-top:18px;
+      padding-top:10px;
+      border-top:1px solid var(--hr);
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* responsive */
+    @media (max-width:640px){
+      .sheet{padding:18px}
+      .meta{flex-direction:column;align-items:flex-start}
+      .q strong.qno{width:74px}
+      header h1{font-size:18px}
+    }
+    /* print friendly */
+    @media print{
+      body{padding:0}
+      .sheet{box-shadow:none;border-radius:0;padding:12px}
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <article class="sheet" role="main">
     <header>
-      <h1>Recommender Systems — Exam-ready Answers (Q1–Q14)</h1>
-      <div class="meta">Comprehensive answers, worked steps, numeric examples and proofs. Math rendered with MathJax.</div>
+      <h1>Artificial Intelligence in Healthcare — Exam Answers</h1>
+      <p class="small">Answer sheet — write-up formatted for submission</p>
     </header>
 
-    <section class="card" id="section-a">
-      <h2>SECTION A — Memory-Based Questions</h2>
+    <div class="meta">
+      <div class="left small">Name: ____________________ &nbsp;&nbsp; Enrolment No: ____________________</div>
+      <div class="right small">Course: AI in Healthcare &nbsp;&nbsp; Time: 03 hrs</div>
+    </div>
 
-      <h3>Q1. Define covariance matrix and explain its purpose briefly.</h3>
-      <p><strong>Answer (exam style):</strong> The <em>covariance matrix</em> for a multivariate dataset is a square matrix that contains covariances between every pair of variables. If \(X\) is an \(n\times p\) data matrix with rows as observations and columns as variables, the sample covariance matrix is:
-      \[\mathbf{C} = \frac{1}{n-1}(X - \bar X)^T (X - \bar X)\]
-      where \(\bar X\) is the row of column means.
-      <br><strong>Purpose:</strong> The covariance matrix quantifies how variables vary together: diagonal elements are variances; off-diagonals indicate linear association (positive, negative, or zero). It is central to Principal Component Analysis (PCA), multivariate Gaussian models, and any algorithm that needs to capture relationships between features.</p>
+    <!-- SECTION A -->
+    <section>
+      <h2>SECTION A — Memory Based Questions (Short)</h2>
+      <div class="qa">
 
-      <h3>Q2. Compare feature combination, feature augmentation, and weighted hybridization techniques.</h3>
-      <p><strong>Answer (exam style):</strong></p>
-      <ul>
-        <li><strong>Feature combination (early fusion):</strong> Combine features from multiple sources (e.g., user demographics + item text embeddings) into a single feature vector that a single model consumes. Advantages: simple, allows the model to learn joint representations. Disadvantages: can increase dimensionality and risk overfitting.</li>
-        <li><strong>Feature augmentation:</strong> Enrich the original dataset by adding derived or auxiliary features (e.g., item popularity, user activity counts, or learned embeddings). It's similar to feature engineering and helps models capture more signals while keeping separate model pipelines.</li>
-        <li><strong>Weighted hybridization (late fusion):</strong> Independently run multiple recommenders (e.g., content-based and collaborative filtering) and combine their scores using weights (e.g., \(score=\alpha s_{CF} + (1-\alpha) s_{CB}\)). Advantages: modular, interpretable, flexible. Disadvantages: requires tuning weights and does not capture interactions between modalities.</li>
-      </ul>
+        <div class="q">
+          <strong class="qno">Q1.</strong>
+          <p><b>Define deep learning and its relation to neural networks.</b></p>
+          <p>Deep learning is a subfield of machine learning that uses multi-layered artificial neural networks to automatically learn hierarchical feature representations from data. It is implemented via deep neural networks—neural networks with many hidden layers—enabling learning of complex, non-linear patterns without manual feature engineering.</p>
+        </div>
 
-      <h3>Q3. Summarize the applications of recommender systems.</h3>
-      <p><strong>Answer (exam style):</strong> Recommender systems are used across domains to personalize content and increase engagement: e-commerce (product recommendations), streaming media (movies, music), news and social feeds (articles/posts), education (course or resource suggestions), advertising (targeted ads), job portals (job recommendations), and healthcare (personalized interventions). They improve discovery, retention, and conversion by predicting user preferences or ranking items.</p>
+        <div class="q">
+          <strong class="qno">Q2.</strong>
+          <p><b>What is the purpose of data preprocessing in healthcare AI applications?</b></p>
+          <p>To clean, normalize and structure raw medical data so models can learn reliably. Preprocessing removes noise, handles missing values, standardizes formats, encodes categorical fields, and ensures inputs meet privacy and clinical safety requirements.</p>
+        </div>
 
-      <h3>Q4. Identify True or False:</h3>
-      <p><strong>i.</strong> <em>Collaborative filtering relies on item features rather than user interactions.</em> — <strong>False.</strong> Collaborative filtering relies on user–item interactions (ratings, clicks) to find patterns. Content-based methods rely on item features.</p>
-      <p><strong>ii.</strong> <em>PCA and SVD can both be used to extract latent features from rating matrices.</em> — <strong>True.</strong> SVD factorizes matrices directly; PCA (applied to the covariance of centered data) also extracts orthogonal principal components; both reveal latent structure.</p>
+        <div class="q">
+          <strong class="qno">Q3.</strong>
+          <p><b>State one limitation of black-box AI models in clinical settings.</b></p>
+          <p>Lack of interpretability: black-box models do not provide transparent reasoning for predictions, reducing clinician trust and complicating accountability for clinical decisions.</p>
+        </div>
 
-      <h3>Q5. Match the following:</h3>
-      <p>Given items:</p>
-      <ul>
-        <li>(a) SVD — (iii) *Note:* SVD is a matrix factorization method. (SVD also yields principal directions when applied to centered data.)</li>
-        <li>(b) Cosine Similarity — (iii) Measures user preference angle similarity.</li>
-        <li>(c) PCA — (i) Identifies principal components.</li>
-        <li>(d) ALS — (ii) Alternating optimization for matrix factorization.</li>
-      </ul>
+        <div class="q">
+          <strong class="qno">Q4.</strong>
+          <p><b>True or False</b></p>
+          <div class="list">
+            <p>1. SHAP and LIME are model training techniques. — <b>False</b></p>
+            <p>2. Deep learning models are always interpretable due to their high accuracy. — <b>False</b></p>
+          </div>
+        </div>
+
+        <div class="q">
+          <strong class="qno">Match</strong>
+          <p class="small">Match the following:</p>
+          <div class="match">
+            <p>(a) NLP → (i) Text analysis</p>
+            <p>(b) CNN → (ii) Medical image interpretation</p>
+            <p>(c) Predictive analytics → (iv) Forecasting patient readmission</p>
+            <p>(d) Wearable Sensors → (iii) Real-time patient monitoring</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section class="card" id="section-b">
-      <h2>SECTION B — Concept-Based Questions</h2>
+    <!-- SECTION B -->
+    <section>
+      <h2>SECTION B — Concept Based Questions</h2>
+      <div class="qa">
 
-      <h3>Q6. Contrast in detail various evaluation metrics for recommender systems (error-based, decision-support, user-centered). Provide an example comparing RMSE and Precision.</h3>
-      <p><strong>Answer (exam style):</strong></p>
-      <h4>1. Error-based metrics (prediction accuracy)</h4>
-      <p>Examples: Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE). These measure how close predicted numeric ratings \(\hat r_{ui}\) are to observed ratings \(r_{ui}\).<br>
-      \[\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_{(u,i)} (r_{ui}-\hat r_{ui})^2 }\]
-      <strong>Use:</strong> When predicting explicit ratings matters (e.g., rating prediction tasks). <strong>Limitation:</strong> RMSE does not reflect ranking quality or top-N utility.</p>
+        <div class="q">
+          <strong class="qno">Q6.</strong>
+          <p><b>Discuss the role of interpretability in building trustworthy AI systems.</b></p>
+          <p>Interpretability enables clinicians and stakeholders to understand model reasoning, verify correctness, detect biases, and make informed decisions. It supports clinical adoption, accountability, regulatory compliance, and error analysis. Approaches include inherently interpretable models and post-hoc methods (SHAP, LIME, Grad-CAM) combined with human oversight.</p>
+        </div>
 
-      <h4>2. Decision-support & ranking metrics</h4>
-      <p>Examples: Precision@K, Recall@K, MAP, NDCG. These evaluate how well a system ranks relevant items at the top of the recommendation list. Useful when the system must present a short list of items to users.</p>
+        <div class="q">
+          <strong class="qno">Q7.</strong>
+          <p><b>Describe the challenges of implementing NLP in multilingual healthcare datasets.</b></p>
+          <p>Challenges include language diversity and code-switching, inconsistent medical terminology, scarce annotated corpora for low-resource languages, ambiguous abbreviations, transliteration issues, and lack of standardized clinical lexicons. These problems demand specialized tokenization, cross-lingual transfer, domain adaptation, and clinician-guided annotation.</p>
+        </div>
 
-      <h4>3. User-centered metrics</h4>
-      <p>Examples: Click-through rate (CTR), conversion rate, session length, user satisfaction surveys, diversity, novelty, and serendipity metrics. These capture real-world user utility and business KPIs beyond pure accuracy.</p>
+        <div class="q">
+          <strong class="qno">Q8.</strong>
+          <p><b>Explain how wearable IoT devices generate data for predictive analytics.</b></p>
+          <p>Wearables collect continuous physiological and motion sensor data (heart rate, SpO₂, accelerometer). Data are preprocessed on-device, transmitted to cloud gateways, stored in time-series stores, and processed into features (HRV, step counts, sleep stages). Streaming pipelines and feature windows feed predictive models to detect anomalies and forecast health events.</p>
+        </div>
 
-      <h4>Example: RMSE vs Precision</h4>
-      <p>Consider two recommenders A and B evaluated on a test set of 100 ratings and a top-5 recommendation list per user.</p>
-      <ul>
-        <li>Recommender A: RMSE = 0.8 (better rating predictions) but Precision@5 = 0.12</li>
-        <li>Recommender B: RMSE = 1.0 (worse on ratings) but Precision@5 = 0.28</li>
-      </ul>
-      <p>Interpretation: Although A predicts ratings more closely, B ranks relevant items higher, hence B is preferable for top-N recommendation use-cases. Choose metrics that match the application objective.</p>
+        <div class="q">
+          <strong class="qno">Q9.</strong>
+          <p><b>How does AI assist in clinical decision-making? Provide an example.</b></p>
+          <p>AI supports diagnosis, prognosis, and treatment recommendations by analyzing complex data. Example: an AI radiology tool detects lung nodules in CT scans and flags high-risk cases for radiologist review, accelerating diagnosis and reducing oversight errors.</p>
+        </div>
 
-      <h3>Q7. Compute Cosine Similarity for two users and interpret.</h3>
-      <p><strong>Given:</strong> User A \([4,3,5]\), User B \([5,3,4]\).</p>
-      <p><strong>Computation (step-by-step):</strong></p>
-      <ol>
-        <li>Dot product: \(A\cdot B = 4\times5 + 3\times3 + 5\times4 = 20 + 9 + 20 = 49.\)</li>
-        <li>Norms: \(\|A\|=\sqrt{4^2+3^2+5^2}=\sqrt{16+9+25}=\sqrt{50}=7.0711.\) \(\|B\|=\sqrt{5^2+3^2+4^2}=\sqrt{25+9+16}=\sqrt{50}=7.0711.\)</li>
-        <li>Cosine similarity: \(\cos(\theta)=\dfrac{A\cdot B}{\|A\|\,\|B\|}=\dfrac{49}{50}=0.98.\)</li>
-      </ol>
-      <p><strong>Interpretation:</strong> Cosine similarity \(\approx 0.98\) indicates the two users have extremely similar tastes (their rating vectors are almost co-linear). For collaborative filtering, they would be treated as neighbors and useful for neighborhood-based prediction.</p>
+        <div class="q">
+          <strong class="qno">Q10.</strong>
+          <p><b>Given Y = 90 + 1.5X (X = BMI)</b></p>
+          <ol>
+            <li><b>(a)</b> If BMI = 28, predicted BP = 90 + 1.5×28 = 132 mmHg.</li>
+            <li><b>(b)</b> If actual BP = 135 mmHg, residual = 135 − 132 = 3 mmHg.</li>
+            <li><b>(c)</b> Adding Age as a second feature captures clinically relevant variance; it reduces unexplained error and improves personalized predictions.</li>
+          </ol>
+        </div>
 
-      <h3>Q8. Prototype for an online bookstore recommender.</h3>
-      <p><strong>i. Hybridization strategy:</strong> For a bookstore, a <strong>weighted hybrid</strong> is effective: combine collaborative filtering (CF) and content-based (CB) scores using a tunable weight \(\alpha\). That is:
-      \[score_{final}=\alpha\cdot score_{CF} + (1-\alpha)\cdot score_{CB}\]
-      Rationale: new items (cold-start) benefit from content features while popular items are better captured by CF. Weighted hybrids are simple and interpretable; weights can be tuned per user segment.</p>
-
-      <p><strong>ii. How ALS-based matrix factorization could improve accuracy:</strong> ALS (Alternating Least Squares) factorizes the user-item rating matrix \(R\) into low-rank factors \(U\in\mathbb{R}^{m\times k}\) and \(V\in\mathbb{R}^{n\times k}\) minimizing regularized squared error:
-      \[\min_{U,V}\sum_{(u,i)\in\Omega} (r_{ui}-u_u^T v_i)^2 + \lambda(\|U\|_F^2+\|V\|_F^2)\]
-      ALS alternately fixes \(U\) and solves for \(V\) (least squares), then fixes \(V\) and solves for \(U\). Benefits: scales to large sparse matrices, converges reliably, handles implicit feedback variants. It often beats simple neighborhood methods by capturing global latent structure.</p>
-
-      <p><strong>iii. Numerical example (small):</strong></p>
-      <p>Consider a small user-item matrix (ratings, 0 = unknown):</p>
-      <table>
-        <tr><th>User/Item</th><th>Book A</th><th>Book B</th><th>Book C</th></tr>
-        <tr><td>User1</td><td>5</td><td>3</td><td>0</td></tr>
-        <tr><td>User2</td><td>4</td><td>0</td><td>0</td></tr>
-        <tr><td>User3</td><td>1</td><td>1</td><td>0</td></tr>
-      </table>
-      <p>Applying ALS with rank \(k=2\) (conceptual): ALS learns two latent factors per user and item. For instance after training we might obtain (example numbers):</p>
-      <pre>U = [[0.9, 0.1],
-[0.7, 0.2],
-[0.2, 0.8]]
-V = [[5.2, 0.1],
-[3.0, 0.2],
-[0.1, 4.9]]</pre>
-      <p>Predicted rating for User1 on Book C: \(u_1^T v_3\) which could be high if latent match exists. In practice ALS will reduce reconstruction error better than simple mean-based imputation.</p>
-
-      <h3>Q9. Correlation between hours studied (X) and mistakes (Y) — negative expectation</h3>
-      <p><strong>Answer (exam style):</strong> Correlation is measured by Pearson's coefficient:
-      \[r=\frac{\sum_i (x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_i (x_i-\bar x)^2\sum_i (y_i-\bar y)^2}}\]
-      If the teacher's data show that more study reduces mistakes, we expect \(r<0\). <strong>Important:</strong> Without concrete numbers we cannot compute a numeric \(r\). For illustration, if three students had \(X=[1,2,4]\) and \(Y=[9,7,3]\) then compute \(r\) using the formula to find a negative correlation (students who studied more made fewer mistakes). The method is to compute means, the numerator (covariance), and normalize by product of standard deviations.</p>
+      </div>
     </section>
 
-    <section class="card" id="section-c">
-      <h2>SECTION C — Analytical-Based Questions</h2>
+    <!-- SECTION C -->
+    <section>
+      <h2>SECTION C — Analytical Based Questions</h2>
+      <div class="qa">
 
-      <h3>Q10. (i) Pearson correlation for given data</h3>
-      <p><strong>Given:</strong> \(X=[1,2,3,4,5,6]\), \(Y=[9,8,6,5,4,2]\).</p>
-      <p><strong>Computation (step-by-step):</strong></p>
-      <ol>
-        <li>Compute means: \(\bar X=\dfrac{1+2+3+4+5+6}{6}=3.5\), \(\bar Y=\dfrac{9+8+6+5+4+2}{6}=5.6667\).</li>
-        <li>Compute numerator (covariance sum): \(\sum (x_i-\bar x)(y_i-\bar y)\). Carrying out the arithmetic gives \(-21.0\).</li>
-        <li>Compute denominator: \(\sqrt{\sum (x_i-\bar x)^2\sum (y_i-\bar y)^2}\approx 21.136\).</li>
-        <li>Pearson correlation: \(r=\dfrac{-21.0}{21.136}\approx -0.9937.\)</li>
-      </ol>
-      <p><strong>Answer:</strong> \(r\approx -0.9937\). This is a very strong negative linear correlation: as study hours increase, mistakes decrease almost perfectly linearly.</p>
+        <div class="q">
+          <strong class="qno">Q11.</strong>
+          <p><b>Deep Learning–based Cancer Diagnostics and Bias Mitigation</b></p>
+          <p>Use a ResNet/FPN style CNN with input normalization and augmentation, residual bottleneck blocks, atrous convolutions for larger receptive fields, attention modules (SE/CBAM), and a classification head. Include domain-adaptive batch normalization and auxiliary segmentation/localization outputs for multi-task learning. To mitigate bias from demographic imbalance and scanner variation: curate balanced datasets, apply augmentation (including synthetic underrepresented samples), use domain adaptation, validate per-group metrics, and incorporate fairness-aware losses. Deploy explainability (Grad-CAM) and stratified evaluation; ensure clinician oversight and continuous monitoring.</p>
+        </div>
 
-      <h3>Q10. (ii) PCA on a 3×3 user-item matrix</h3>
-      <p><strong>Given matrix:</strong>
-      \[R=\begin{bmatrix}5&3&0\\4&0&0\\1&1&0\end{bmatrix}\]
-      Treating each <em>column</em> as a variable (items) and rows as observations (users), we compute the sample covariance matrix (columns centered).</p>
-      <p><strong>Computed covariance matrix (sample, unbiased):</strong>
-      \[C=\begin{bmatrix}0 & 0 & 0\\0 & 1.6667 & 0\\0 & 0 & 5.0000\end{bmatrix}\]
-      (Note: depending on centering convention results vary — here the principal nonzero covariances correspond to item 2 and item 3 variances.)</p>
-      <p><strong>Eigen-decomposition (principal components):</strong> The eigenvalues are approximately \([0,\;1.6667,\;5.0000]\) with corresponding orthonormal eigenvectors (principal directions). The largest eigenvalue (5.0) gives the first principal component; the second (1.6667) the second, and the zero eigenvalue indicates a degenerate direction (no variance).</p>
-      <p><strong>Interpretation for recommendations:</strong> Principal components (latent directions) reveal combinations of items that explain most rating variance. Projecting users into the top-k PC space yields compact latent features for similarity, clustering, or nearest-neighbor retrieval. In recommender systems, PCA (or truncated SVD) produces low-dimensional item/user embeddings used for scoring.</p>
+        <div class="q">
+          <strong class="qno">Q12.</strong>
+          <p><b>Case Study — NLP in Pathology Reports</b></p>
+          <ol>
+            <li>Stages: data collection & de-identification → preprocessing (tokenization, normalization, abbreviation expansion) → domain embeddings → NER/entity linking → relation extraction → classification → evaluation.</li>
+            <li>Challenges: ambiguous abbreviations, institution-specific shorthand, terminology variation, scarce annotated clinical corpora, normalization to ontologies.</li>
+            <li>BERT-based models: provide contextualized embeddings, handle polysemy, fine-tune effectively on limited labeled clinical data and outperform rigid rule-based systems.</li>
+            <li>Ethical implications: misinterpretation can cause incorrect diagnoses, patient harm, privacy breaches and legal liability; thus validation and human review are essential.</li>
+          </ol>
+        </div>
 
-      <h3>Q10. (iii) How latent features help recommendations</h3>
-      <p>Latent features capture underlying preferences (e.g., a user's affinity for "technical" vs "fictional" books) without needing explicit tags. Using latent vectors, predicted rating is modeled by dot product \(\hat r_{ui} = u_u^T v_i\). This reduces sparsity issues and improves generalization.</p>
-
-      <h3>Q11. Deep Hybrid Recommender Systems (NNs / GNNs)</h3>
-      <p><strong>Answer (exam style):</strong></p>
-      <h4>Architecture overview</h4>
-      <p>A deep hybrid recommender blends multiple signals (collaborative + content + context) using neural components. A common architecture contains:</p>
-      <ul>
-        <li><strong>Input & embedding layers:</strong> Users and items (IDs) mapped to dense embeddings; textual content (title, description) tokenized and passed through an encoder (CNN/RNN/Transformer) to produce content embeddings; contextual features (time, device) encoded as vectors.</li>
-        <li><strong>Interaction layers:</strong> Combine embeddings via concatenation, element-wise product, or neural collaborative filtering (NCF) blocks. For example, a multi-layer perceptron (MLP) takes [user_emb, item_emb, content_emb] and outputs a score.</li>
-        <li><strong>Graph Neural Networks (GNNs):</strong> When interaction graph (users↔items) structure matters, use GNNs (e.g., GCN, LightGCN) to propagate embeddings along edges and capture high-order connectivity. Node embeddings are aggregated across neighbors and then combined for prediction.</li>
-        <li><strong>Output layer & loss:</strong> For explicit ratings use MSE/RMSE loss. For implicit feedback use sigmoid + binary cross entropy or pairwise ranking losses (BPR). Add regularization and auxiliary losses (e.g., reconstruction loss, feature prediction) for multi-task training.</li>
-      </ul>
-
-      <h4>Embeddings</h4>
-      <p>Embeddings convert sparse IDs or tokens into dense vectors of size \(k\) (e.g., \(k=64\)). These are learned during training and capture latent properties.</p>
-
-      <h4>Interaction layers</h4>
-      <p>Examples: dot product (simple), concatenation into MLP, or attention-based fusion. Interactions model complex relationships beyond linear dot-products.</p>
-
-      <h4>Loss functions</h4>
-      <ul>
-        <li>MSE / RMSE for explicit ratings: \(\mathcal{L}=\sum (r_{ui}-\hat r_{ui})^2\).</li>
-        <li>BPR (pairwise) for ranking: maximize \(\sigma(\hat r_{ui}-\hat r_{uj})\) where \(i\) is observed positive and \(j\) sampled negative.</li>
-        <li>Cross-entropy for implicit feedback with negative sampling.</li>
-      </ul>
-
-      <h4>Why deep + hybrid?</h4>
-      <p>Combining content encoders and graph/collaborative modules allows the model to use side information to help cold-start and structural signals to capture graph patterns, improving recommendation quality over pure CF or pure CB models.</p>
-
-      <h3>Q12. EduSmart — hybrid recommender design and example prediction</h3>
-      <p><strong>Design:</strong> Use a weighted hybrid of collaborative filtering (ALS/Matrix Factorization or Neural CF) and content-based models (text embeddings from course descriptions). System flow:</p>
-      <ol>
-        <li>Preprocess: produce TF-IDF / transformer embeddings for course content; normalize and store as \(c_i\).</li>
-        <li>CF module: train ALS to get user latent vectors \(u_u\) and course latent vectors \(v_i\).</li>
-        <li>CB module: compute content-score as similarity between user's profile (aggregate of enrolled course embeddings) and course embedding \(s_{CB}(u,i)=\mathrm{cos}(profile_u, c_i)\).</li>
-        <li>Combine: \(score(u,i)=\alpha\,u_u^T v_i + (1-\alpha)\, s_{CB}(u,i)\). Tune \(\alpha\) on validation data.</li>
-      </ol>
-
-      <p><strong>Example prediction (illustrative):</strong> Suppose for User A we have:
-      <ul>
-        <li>ALS predicted score for "Deep Learning" \(=3.8\) (on a 5-pt scale),</li>
-        <li>Content similarity \(s_{CB}=0.75\) (normalized to 0–5 scale gives 3.75),</li>
-        <li>Set \(\alpha=0.6\).</li>
-      </ul>
-      Then combined prediction:
-      \[\hat r = 0.6\times 3.8 + 0.4\times 3.75 = 2.28 + 1.5 = 3.78.\]
-      Interpret: predicted rating ≈ 3.78.
-      </p>
-
-      <p><strong>Evaluation metrics:</strong> Use RMSE/MAE for rating prediction, Precision@K / Recall@K / NDCG for top-N ranking, and user-centered metrics (CTR, completion rate) for business relevance.</p>
-
-      <p><strong>Cold-start handling:</strong> For new courses: rely on content-based similarity and metadata; for new users: use onboarding questionnaires, popularity baselines, or exploit contextual/session signals to bootstrap preferences.</p>
+      </div>
     </section>
 
-    <section class="card" id="section-d">
-      <h2>SECTION D — Case Study / Application-Based Questions</h2>
+    <!-- SECTION D -->
+    <section>
+      <h2>SECTION D — Case Study / Application Based Questions</h2>
+      <div class="qa">
 
-      <h3>Q13. SVD on a 4×4 rating matrix</h3>
-      <p><strong>Given:</strong>
-      \[R=\begin{bmatrix}5&3&0&1\\4&0&0&1\\1&0&0&5\\0&1&0&4\end{bmatrix}\]</p>
+        <div class="q">
+          <strong class="qno">Q13.</strong>
+          <p><b>Predictive Hospital Analytics using AI & Big Data</b></p>
+          <ol>
+            <li>Pipeline: ingest EHR, admission logs, IoT, scheduling and external data → cleaning & timestamp alignment → feature engineering (lags, rolling stats, occupancy rates) → model selection (LSTM/GRU for sequence modeling; Random Forest/XGBoost for engineered features) → validation (time series cross-validation) → deployment (streaming inference).</li>
+            <li>Hybrid architecture: Kafka for streaming ingestion → Spark/Flink for windowed feature computation → model serving (TF Serving or microservices) → dashboard and alerting; raw/feature data persisted in data lake for retraining.</li>
+            <li>Handling data issues: impute missing values, include missingness indicators, filter noisy sensors, use resampling or cost-sensitive learning for imbalance.</li>
+            <li>Fairness: audit subgroup performance, apply reweighting or fairness constraints, monitor and retrain when disparities appear.</li>
+          </ol>
+        </div>
 
-      <h4>(i) Apply SVD to reduce R into two latent factors (U, Σ, Vᵀ)</h4>
-      <p><strong>Computation (truncated SVD):</strong> Compute full SVD \(R=U\Sigma V^T\). The singular values (descending) are approximately:
-      \[\sigma \approx [7.8273,\;5.4517,\;2.0032,\;3.685\times10^{-17}]\]
-      Taking top-2 singular values, extract \(U_{k},\Sigma_{k}, V_{k}^T\) where \(k=2\).</p>
+        <div class="q">
+          <strong class="qno">Q14.</strong>
+          <p><b>Fair and Interpretable AI Framework for Healthcare</b></p>
+          <ol>
+            <li>Preprocessing & bias detection: normalize, map terminologies, compute groupwise statistics, and rebalance data where needed.</li>
+            <li>Model & explainability: prefer interpretable models where feasible; otherwise pair black-box models with SHAP/LIME or Grad-CAM for explanations and provide global and local explanations to clinicians.</li>
+            <li>Fairness evaluation: measure Demographic Parity, Equal Opportunity, and False Positive Rate Parity; set acceptable thresholds and mitigate via reweighting, threshold adjustments, or adversarial debiasing.</li>
+            <li>Operationalize with continuous monitoring, clinician review, and governance for safety and equity.</li>
+          </ol>
+        </div>
 
-      <h4>(ii) Reconstruct approximate \(R'\) using top-2 singular values</h4>
-      <p>The rank-2 approximation \(R' = U_k\Sigma_k V_k^T\) yields (numerical approximate):</p>
-      <pre>R' ≈
-[[5.35135, 2.07255, 0.     , 1.04035],
- [3.48442, 1.36096, 0.     , 0.94079],
- [0.80275, 0.52067, 0.     , 4.97735],
- [0.27318, 0.27889, 0.     , 4.03137]]</pre>
-
-      <h4>(iii) How compression improves scalability</h4>
-      <p>Storing \(U_k (m\times k)\) and \(V_k (n\times k)\) reduces memory from \(O(mn)\) to \(O((m+n)k)\) when \(k\ll\min(m,n)\). Computation of predictions becomes a small dot product between two \(k\)-dimensional vectors. This reduces storage, speeds up nearest-neighbor searches, and enables distributed training / serving.</p>
-
-      <h4>(iv) Reconstruction error (Frobenius norm)</h4>
-      <p>Frobenius error \(\|R-R'\|_F\) for the rank-2 approximation is approximately \(2.00322\). This value equals the root-sum-square of discarded singular values (here roughly the third singular value). A smaller error means a better low-rank approximation.</p>
-
-      <h3>Q14. Eigen decomposition of covariance matrix</h3>
-      <p><strong>Given:</strong>
-      \[C=\begin{bmatrix}4&2&0\\2&3&1\\0&1&2\end{bmatrix}\]</p>
-
-      <h4>Compute eigenvalues and eigenvectors</h4>
-      <p>Eigenvalues (ascending) are approximately:
-      \[\lambda\approx[0.8549,\;2.4760,\;5.6691]\]</p>
-      <p>Corresponding (normalized) eigenvectors (columns):</p>
-      <pre>v1 ≈ [0.43198, -0.67931,  0.59323]^T
-v2 ≈ [0.49130, -0.37436, -0.78644]^T
-v3 ≈ [-0.75632,-0.63118, -0.17203]^T</pre>
-
-      <h4>(i) Identify principal components and project into 2-D</h4>
-      <p>Principal components correspond to eigenvectors with largest eigenvalues. To project data into 2-D, choose eigenvectors for the two largest eigenvalues (\(\lambda_2=2.4760\) and \(\lambda_3=5.6691\) in this ordering) and form projection matrix \(W\) from these eigenvectors. For centered data matrix \(X\), the 2-D coordinates are \(Z=XW\).</p>
-
-      <h4>(ii) How reduction aids content-based filtering</h4>
-      <p>Textual embeddings like TF-IDF or Word2Vec often live in high-dimensional spaces. PCA or SVD reduces dimensionality, removing noise and focusing on dominant semantic directions. This speeds similarity computations and reduces storage while preserving most variance important for content matching.</p>
-
-      <h4>(iii) Dimensionality reduction and overfitting</h4>
-      <p>By reducing the number of features, models have fewer free parameters and less capacity to memorize noise. This improves generalization especially when training data is sparse relative to feature dimensionality. Regularization and selection of the number of components (via cross-validation) balances approximation accuracy and overfitting risk.</p>
-
+      </div>
     </section>
 
-    <footer class="note">If you want this exported as a single HTML file for submission, or converted to PDF, tell me and I will prepare a downloadable file.</footer>
-  </div>
+    <footer>
+      <div class="small">End of answer sheet — Please write your roll number and sign below if required.</div>
+    </footer>
+  </article>
 </body>
 </html>
